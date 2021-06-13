@@ -163,13 +163,15 @@ set ip 192.168.75.3 mask 24 gateway 192.168.75.254
 
 `$ yay -S rsync`  
 
+become root  
+`$ sudo su -`
+
 follow instructions [here](https://wiki.archlinux.org/title/rsync#Automated_backup_with_SSH) to allow root rsync  
 
 copy backups from openvpn server  
-    rsync -azv 192.168.75.109:/mnt/backups/usb1/sys_save /home/ws0901bkp       
-
+`# rsync -azv 192.168.75.109:/mnt/backups/usb1/sys_save /home/ws0901bkp`
 
 copy backups from web server  
-     rsync -azv 192.168.75.209:/mnt/backup/sys_save /home/arch1601bkp
+`# rsync -azv 192.168.75.209:/mnt/backup/sys_save /home/arch1601bkp`
 
 
