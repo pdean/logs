@@ -174,4 +174,6 @@ copy backups from openvpn server
 copy backups from web server  
 `# rsync -azv 192.168.75.209:/mnt/backup/sys_save /home/arch1601bkp`
 
+### postfix for mail
 
+general instructions [here](https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/)
