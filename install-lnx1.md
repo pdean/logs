@@ -249,7 +249,7 @@ then
 [Breakage](https://bbs.archlinux.org/viewtopic.php?id=261268)  
 note new ownership and permissions  
 
-    $ ls -l openvpn/
+    $ ls -l /etc/openvpn/
     total 8
     drwxr-x--- 2 openvpn network 4096 Jun 15 08:11 client
     drwxr-x--- 2 openvpn network 4096 Jun 15 08:11 server
