@@ -137,6 +137,7 @@ set ip 192.168.75.3 mask 24 gateway 192.168.75.254
 
 ### fix isssue with gdm going to sleep
 
+[ref](https://wiki.archlinux.org/title/GDM#GDM_auto-suspend_(GNOME_3.28))  
 `$ sudo -u gdm dbus-launch gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'`
 
 ### install yay
