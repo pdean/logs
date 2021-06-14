@@ -240,5 +240,5 @@ add the folowing lines and save
 
 `# pacman -S openvpn`  
 
-
+[Breakage](https://bbs.archlinux.org/viewtopic.php?id=261268)
 
