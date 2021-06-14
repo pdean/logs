@@ -177,3 +177,45 @@ copy backups from web server
 ### postfix for mail
 
 general instructions [here](https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/)
+
+`# pacman -Sy postfix mailutils`  
+`# cd /etc/postfix`  
+`# cp aliases aliases.orig`  
+`# cp main.cf main.cf.orig`  
+`# cp generic generic.orig`  
+
+`# vim sasl_passwd`  
+insert the following line (using the correct password)  
+`[smtp.gmail.com]:587    nthgrplnxspt@gmail.com:password`  
+`# chmod 600 /etc/postfix/sasl_passwd`  
+`# postmap /etc/postfix/sasl_passwd`  
+
+`# vim main.cf`  
+add the following lines at end and save  
+`relayhost = [smtp.gmail.com]:587`  
+`smtp_use_tls = yes`  
+`smtp_sasl_auth_enable = yes`  
+`smtp_sasl_security_options =`  
+`smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd`  
+`smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt`  
+
+
+`# vim aliases`  
+change root to the following and save  
+`root:	support@northgroup.com.au, pdean@northgroup.com.au`  
+`# postalias /etc/postfix/aliases`  
+
+`# vim generic`  
+add the folowing lines and save  
+`root@localhost.localdomain	support@northgroup.com.au`  
+`root@lnx1.localdomain		support@northgroup.com.au`  
+`http@lnx1.localdomain		support@northgroup.com.au`  
+`# postmap /etc/postfix/generic`  
+
+`# systemctl enable --now postfix`  
+
+`# pacman -Sy s-nail`  
+`$ mailx -s "Test subject" support@northgroup.com.au`  
+
+
+
