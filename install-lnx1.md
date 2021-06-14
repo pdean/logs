@@ -1,3 +1,5 @@
+[modeline]: # ( vim: set ft=markdown sts=4 sw=4 et: )
+
 
 # Arch linux install guide
 
@@ -244,5 +246,11 @@ then
 
 `# pacman -S openvpn`  
 
-[Breakage](https://bbs.archlinux.org/viewtopic.php?id=261268)
+[Breakage](https://bbs.archlinux.org/viewtopic.php?id=261268)  
+note new ownership and permissions  
+
+    $ ls -l openvpn/
+    total 8
+    drwxr-x--- 2 openvpn network 4096 Jun 15 08:11 client
+    drwxr-x--- 2 openvpn network 4096 Jun 15 08:11 server
 
