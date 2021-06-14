@@ -218,4 +218,11 @@ add the folowing lines and save
 `$ mailx -s "Test subject" support@northgroup.com.au`  
 
 
+### postgresql
+
+[Overview](https://wiki.archlinux.org/title/PostgreSQL)  
+
+`# pacman -S postgresql postgis`  
+
+
 
