@@ -222,9 +222,16 @@ add the folowing lines and save
 
 [Overview](https://wiki.archlinux.org/title/PostgreSQL)  
 
-`# pacman -S postgresql postgis`  
+`# pacman -S postgresql`  
 
 
+
+### postgis
+
+[Overview](https://wiki.archlinux.org/title/PostGIS)
+
+
+`# pacman -S postgis`  
 
 
 ### openvpn
@@ -232,4 +239,6 @@ add the folowing lines and save
 [Overview](https://wiki.archlinux.org/title/OpenVPN)
 
 `# pacman -S openvpn`  
+
+
 
