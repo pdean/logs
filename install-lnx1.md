@@ -202,8 +202,10 @@ add the following lines at end and save
 
 
 `# vim aliases`  
+[ref](https://wiki.archlinux.org/title/postfix#Aliases)  
 change root to the following and save  
 `root:	support@northgroup.com.au, pdean@northgroup.com.au`  
+then  
 `# postalias /etc/postfix/aliases`  
 
 `# vim generic`  
@@ -211,6 +213,7 @@ add the folowing lines and save
 `root@localhost.localdomain	support@northgroup.com.au`  
 `root@lnx1.localdomain		support@northgroup.com.au`  
 `http@lnx1.localdomain		support@northgroup.com.au`  
+then 
 `# postmap /etc/postfix/generic`  
 
 `# systemctl enable --now postfix`  
