@@ -255,7 +255,13 @@ note new ownership and permissions
     drwxr-x--- 2 openvpn network 4096 Jun 15 08:11 server
 
 copy config from vpn server and fix owner and perms  
-    rsync -azv gis:/etc/openvpn /etc
-    chown -R openvpn.network /etc/openvpn/server
-    chmod -R 750 /etc/openvpn/server
+
+    # rsync -azv gis:/etc/openvpn /etc
+    # chown -R openvpn.network /etc/openvpn/server
+    # chmod -R 750 /etc/openvpn/server
+
+enable and start test on port 8194
+
+    systemctl enable --now openvpn-server@server2.service
+    systemctl status openvpn-server@server2.service
 
