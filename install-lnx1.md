@@ -277,7 +277,7 @@ use firewall gui to enable services - see system/administration
 
 and ports
 
-    8015/tcl 8194/udp
+    8015/tcp 8194/udp
 
 and enable masquerade, then copy runtime to permanent
 
