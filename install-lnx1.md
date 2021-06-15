@@ -265,3 +265,9 @@ enable and start test on port 8194
     systemctl enable --now openvpn-server@server2.service
     systemctl status openvpn-server@server2.service
 
+portforwarding
+
+<https://openvpn.net/faq/how-do-i-enable-ip-forwarding/>  
+<https://wiki.archlinux.org/title/Internet_sharing#Enable_packet_forwarding>  
+
+
