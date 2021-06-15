@@ -265,9 +265,22 @@ enable and start test on port 8194
     systemctl enable --now openvpn-server@server2.service
     systemctl status openvpn-server@server2.service
 
-portforwarding
+### firewalld
 
-<https://openvpn.net/faq/how-do-i-enable-ip-forwarding/>  
-<https://wiki.archlinux.org/title/Internet_sharing#Enable_packet_forwarding>  
+[Install](https://wiki.archlinux.org/title/Firewalld)  
+
+    # systemctl enable --now firewalld
+
+use firewall gui to enable services - see system/administration
+
+    http https imap imaps mysql openvpn postgresql samba samba-client smtp smtps smtp-submission ssh
+
+and ports
+
+    8015/tcl 8194/udp
+
+and enable masquerade, then copy runtime to permanent
+
+  
 
 
