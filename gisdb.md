@@ -55,7 +55,7 @@ Log in to qspatial and search for 'cadastre', select whole of queensland GDA2020
 
 Log in to qspatial and search for 'control'.  Download and unzip.
 
-    $ ogr2ogr -progress -overwrite -skipfailures  -f "PostgreSQL" PG:"host=gis user=gis dbname=gis active_schema=qspatial " data.gdb --config PG_USE_COPY YES 
+    $ ogr2ogr -progress -overwrite -skipfailures  -f "PostgreSQL" PG:"host=localhost user=gis dbname=gis active_schema=qspatial " data.gdb --config PG_USE_COPY YES 
 
     $ vim code.sql
 
@@ -81,7 +81,7 @@ then
 
 Log in to qspatial and search for '1km'. Should be first in list.  Download and unzip.
 
-    $ ogr2ogr -progress -overwrite -skipfailures  -f "PostgreSQL" PG:"host=gis user=gis dbname=gis active_schema=qspatial" data.gdb --config PG_USE_COPY YES
+    $ ogr2ogr -progress -overwrite -skipfailures  -f "PostgreSQL" PG:"host=localhost user=gis dbname=gis active_schema=qspatial" data.gdb --config PG_USE_COPY YES
 
 
 ### tmr road location database
@@ -114,13 +114,19 @@ We're just gonna copy the whole /usr/local from the gis machine!
 
     # rsync -azv gis:/usr/local /usr
 
-Now we need to install tcl and tcllib.  Use pacman to install tcl
+Now we need to install tcl, tdom and tcllib.  Use pacman to install tcl
 
     # pacman -S tcl
 
+and yay to install tdom from the AUR
+
+    $ yay tdom
+
+then select the number and default all the prompts.
+
 and yay to install tcllib from the AUR
 
-    # yay tcllib
+    $ yay tcllib
 
 then select the number and default all the prompts.
 
