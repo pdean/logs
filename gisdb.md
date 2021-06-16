@@ -100,7 +100,11 @@ Now it get complex.  The program to load the data to postgres is written in sche
     $ chicken-csc roaddb.scm
     $ ./roaddb
 
+#### create views
 
+get [view.sql](https://github.com/pdean/logs/blob/main/view.sql)
+
+    psql -U gis <view.sql
 
     
 
