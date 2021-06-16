@@ -75,3 +75,25 @@ insert following
 then
 
     $ psql -U gis <code.sql
+
+### tmr 1km marks
+
+
+Log in to qspatial and search for '1km'. Should be first in list.  Download and unzip.
+
+    $ ogr2ogr -progress -overwrite -skipfailures  -f "PostgreSQL" PG:"host=gis user=gis dbname=gis active_schema=qspatial" data.gdb --config PG_USE_COPY YES
+
+
+### tmr road location database
+
+Download from [here](https://www.data.qld.gov.au/dataset/road-location-and-traffic-data/resource/daab3617-077f-450a-a1c0-57c26d8ba47c) and unzip
+
+Need to resort the file
+
+    $ file="Road location and traffic data.txt"
+    $ tail -n +2 "$file" |sort -o sort.txt -t ',' -k 1,1 -k 2,2 -k 3,3n
+
+Now it get complex.  The program to load the data to postgres is written in scheme. [roaddb.scm]
+    
+
+
