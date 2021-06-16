@@ -188,8 +188,8 @@ general instructions [here](https://www.howtoforge.com/tutorial/configure-postfi
 `# cp generic generic.orig`  
 
 `# vim sasl_passwd`  
-insert the following line (using the correct password)  
-`[smtp.gmail.com]:587    nthgrplnxspt@gmail.com:password`  
+insert the following line (using the correct name/password)  
+`[smtp.gmail.com]:587   username@gmail.com:password`  
 `# chmod 600 /etc/postfix/sasl_passwd`  
 `# postmap /etc/postfix/sasl_passwd`  
 
@@ -277,7 +277,7 @@ use firewall gui to enable services - see system/administration
 
 and ports
 
-    8015/tcl 8194/udp
+    8015/tcp 8194/udp
 
 and enable masquerade, then copy runtime to permanent
 
