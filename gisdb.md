@@ -123,3 +123,11 @@ and yay to install tcllib from the AUR
     # yay tcllib
 
 then select the number and default all the prompts.
+
+get the [tclhttpd.service](https://github.com/pdean/logs/blob/main/tclhttpd.service)
+
+    $ sudo cp tclhttpd.service /etc/systemd/system
+    $ sudo systemctl enable --now tclhttpd.service
+
+    $ firefox localhost:8015
+
