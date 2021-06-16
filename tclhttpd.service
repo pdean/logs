@@ -1,0 +1,12 @@
+[Unit]
+Description=Tclhttpd
+Requires=postgresql.service
+After=postgresql.service
+
+[Service]
+User=staff
+Group=wheel
+ExecStart=/usr/local/bin/httpd.tcl -debug 1
+
+[Install]
+WantedBy=multi-user.target
