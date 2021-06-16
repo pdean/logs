@@ -8,7 +8,7 @@
 
 [Overview](https://wiki.archlinux.org/title/PostgreSQL)
 
-    # pacman -S postgresql postgis
+    # pacman -S postgresql postgis zip unzip
     # sudo -iu postgres
     [postgres]$ initdb -D /var/lib/postgres/data
 
@@ -108,4 +108,18 @@ get [view.sql](https://github.com/pdean/logs/blob/main/view.sql)
 
     
 
+## Install tclhttpd
 
+We're just gonna copy the whole /usr/local from the gis machine!
+
+    # rsync -azv gis:/usr/local /usr
+
+Now we need to install tcl and tcllib.  Use pacman to install tcl
+
+    # pacman -S tcl
+
+and yay to install tcllib from the AUR
+
+    # yay tcllib
+
+then select the number and default all the prompts.
