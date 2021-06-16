@@ -224,23 +224,8 @@ then
 `$ mailx -s "Test subject" support@northgroup.com.au`  
 
 
-### postgresql
 
-[Overview](https://wiki.archlinux.org/title/PostgreSQL)  
-
-`# pacman -S postgresql`  
-
-
-
-### postgis
-
-[Overview](https://wiki.archlinux.org/title/PostGIS)
-
-
-`# pacman -S postgis`  
-
-
-### openvpn
+## openvpn
 
 [Overview](https://wiki.archlinux.org/title/OpenVPN)
 
