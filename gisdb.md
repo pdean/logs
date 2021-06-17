@@ -64,12 +64,12 @@ insert following
 
     update qspatial.survey_control_data_qld
         set code = 2 |
-	      (((ahdacc_de is not null) or (ahdcls_de is not null) or (ahdfix_de is not null))::int << 2) |
+              (((ahdacc_de is not null) or (ahdcls_de is not null) or (ahdfix_de is not null))::int << 2) |
               (((gda2020fix_de is not null) and (gda2020fix_de like 'CADASTRAL%'))::int << 3) |
-	      (((gda2020fix_de is not null) and (gda2020fix_de not like 'SCALED%'))::int << 4) |
-	      (((ahdacc_de is not null) and (ahdacc_de ~ '^[1-3]'))::int << 5) |
+              (((gda2020fix_de is not null) and (gda2020fix_de not like 'SCALED%'))::int << 4) |
+              (((ahdacc_de is not null) and (ahdacc_de ~ '^[1-3]'))::int << 5) |
               (((gda2020lineage_de is not null) and (gda2020lineage_de ~ 'Datum%'))::int << 6) |
-	      (((mrkcnd_de is not null) and (mrkcnd_de not like 'GOOD%'))::int << 7);
+              (((mrkcnd_de is not null) and (mrkcnd_de not like 'GOOD%'))::int << 7);
 
 then
 
