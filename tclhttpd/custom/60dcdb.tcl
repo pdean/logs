@@ -3,7 +3,7 @@
 proc dcdb {sock lon1 lat1 lon2 lat2} {
     global trans 
 
-    set conninfo [list -host web -db gis -user gis]
+    set conninfo [list -host localhost -db gis -user gis]
     tdbc::postgres::connection create db {*}$conninfo
 
 
