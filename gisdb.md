@@ -135,5 +135,9 @@ get the [tclhttpd.service](https://github.com/pdean/logs/blob/main/tclhttpd.serv
     $ sudo cp tclhttpd.service /etc/systemd/system
     $ sudo systemctl enable --now tclhttpd.service
 
+check it's running
+
     $ firefox localhost:8015
 
+need to edit all scripts to use new database   
+they live in `/usr/local/tclhttpd/custom`  
