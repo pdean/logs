@@ -141,3 +141,4 @@ check it's running
 
 need to edit all scripts to use new database   
 they live in `/usr/local/tclhttpd/custom`  
+then `# systemctl restart tclhttpd`  
