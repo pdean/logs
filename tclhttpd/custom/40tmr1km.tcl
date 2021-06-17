@@ -6,8 +6,7 @@ proc tmr1km {sock lon1 lat1 lon2 lat2 } {
     
 #    Stderr "$lon1,$lat1,$lon2,$lat2"
         
-    set conninfo [list -host lnx1 -db gis -user gis]
-#    set conninfo [list -host gis -db gis -user gis]
+    set conninfo [list -host localhost -db gis -user gis]
     tdbc::postgres::connection create db {*}$conninfo 
     
     set schema qspatial

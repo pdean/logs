@@ -7,8 +7,6 @@ package require TclOO
 package require tdbc 
 package require tdbc::postgres
 
-set conninfo [list -host superpc_01 -db gisdb -user gisuser -password gisuser]
-
 #package require Pgtcl
 package require base64
 package require tdom

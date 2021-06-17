@@ -6,10 +6,7 @@ proc tmrroadloc {sock lon1 lat1 lon2 lat2 } {
     
     #Stderr "$lon1,$lat1,$lon2,$lat2"
         
-    set conninfo [list -host localhost -port 5432 -db gis -user gis ]
-#    set conninfo [list -host ws1801.northgroup.local -port 5432 -db gisdb -user gisuser -password gisuser ]
-#    set conninfo [list -host 192.168.75.109 -port 5434 -db gisdb -user gisuser -password gisuser]
-
+    set conninfo [list -host localhost -db gis -user gis ]
     tdbc::postgres::connection create db {*}$conninfo 
     
     set schema tmr1
