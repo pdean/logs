@@ -29,9 +29,8 @@ create users staff and gis as superusers
 
 insert these lines after 127.0.0.1
 
-    host    all             all             192.168.75.0/24            trust
-    host    all             all             10.8.0.0/24            trust
-    host    all             all             10.8.1.0/24            trust
+    host    all             all             192.168.0.0/16            trust
+    host    all             all             10.8.0.0/16            trust
 
     
     # vim /var/lib/postgresql/data/postgresql.conf
