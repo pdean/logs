@@ -9,5 +9,8 @@
     add views to tmr road location database
 * tclhttpd.service  
     start tclhttpd webserver systemd  
-* tclhttpd/custom
-    tcl scripts for network links
+* tclhttpd  
+    install tclhttpd web server  
+* tclhttpd/custom  
+    tcl scripts for network links  
+    copy to /usr/local/tclhttpd/custom  
