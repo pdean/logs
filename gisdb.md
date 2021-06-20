@@ -113,6 +113,8 @@ get [view.sql](https://github.com/pdean/logs/blob/main/view.sql)
 
 ## Install tclhttpd
 
+install instructions [here](https://github.com/pdean/logs/tree/main/tclhttpd)
+
 We're just gonna copy the whole /usr/local from the gis machine!
 
     # rsync -azv gis:/usr/local /usr
@@ -132,6 +134,8 @@ and yay to install tcllib from the AUR
     $ yay tcllib
 
 then select the number and default all the prompts.
+
+copy [zipper](https://github.com/pdean/logs/tree/main/zipper) folder to /usr/local/lib  
 
 get the [tclhttpd.service](https://github.com/pdean/logs/blob/main/tclhttpd.service)
 
