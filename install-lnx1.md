@@ -3,6 +3,8 @@
 
 # Arch linux install guide
 
+[Example linux box](https://au.pcpartpicker.com/user/tedpaneer/saved/#view=yGT7RB)  
+
 [Read install guide here](https://wiki.archlinux.org/title/Installation_guide)
 
 ## Specific instructions for lnx1
