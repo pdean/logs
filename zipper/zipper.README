@@ -1,0 +1,28 @@
+Creating ZIP archives in Tcl
+============================
+
+  Rev 0.11: Added ?force? arg to bypass re-compression
+  Rev 0.10: Initial release
+
+
+Zipper is a package to create ZIP archives with a few simple commands:
+
+    zipper::initialize $fd
+    	initialize things to start writing zip file entries
+
+    zipper::addentry name contents ?date? ?force?
+    	add one entry, modification date defaults to [clock seconds]
+
+    zipper::finalize
+    	write trailing table of contents, returns file descriptor
+
+Example:
+
+    package require zipper
+    zipper::initialize [open try.zip w]
+    zipper::addentry dir/file.txt "some data to store"
+    close [zipper::finalize]
+
+If the "zlib" package is available, it will be used to to compress the
+data when possible and to calculate proper CRC-32 checksums.  Otherwise,
+the output file will contain uncompressed data and zero checksums.
