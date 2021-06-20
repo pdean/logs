@@ -46,13 +46,16 @@ change listen_addresses to
 
 ### dcdb
 
-Log in to qspatial and search for 'cadastre', select whole of queensland GDA2020. Get download link from email, download and unzip.
+Log in to [qspatial](https://qldspatial.information.qld.gov.au/catalogue/custom/index.page)
+ and search for 'cadastre', select whole of queensland GDA2020. 
+Get download link from email, download and unzip.
 
     $ ogr2ogr -progress -overwrite -skipfailures  -f "PostgreSQL" PG:"host=localhost user=gis dbname=gis active_schema=qspatial" DP_QLD_DCDB_WOS_CUR_GDA2020.gdb --config PG_USE_COPY YES
 
 ### scdb
 
-Log in to qspatial and search for 'control'.  Download and unzip.
+Log in to [qspatial](https://qldspatial.information.qld.gov.au/catalogue/custom/index.page) 
+and search for 'control'.  Download and unzip.
 
     $ ogr2ogr -progress -overwrite -skipfailures  -f "PostgreSQL" PG:"host=localhost user=gis dbname=gis active_schema=qspatial " data.gdb --config PG_USE_COPY YES 
 
@@ -78,7 +81,8 @@ then
 ### tmr 1km marks
 
 
-Log in to qspatial and search for '1km'. Should be first in list.  Download and unzip.
+Log in to [qspatial](https://qldspatial.information.qld.gov.au/catalogue/custom/index.page)
+ and search for '1km'. Should be first in list.  Download and unzip.
 
     $ ogr2ogr -progress -overwrite -skipfailures  -f "PostgreSQL" PG:"host=localhost user=gis dbname=gis active_schema=qspatial" data.gdb --config PG_USE_COPY YES
 
