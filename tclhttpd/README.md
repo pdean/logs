@@ -4,14 +4,15 @@
 
 ## installing tclhttpd
 
+    $ sudo chown -R root.wheel /usr/local
+    $ sudo chmod -R 775 /usr/local
+    $ sudo pacman -S fossil
     $ mkdir fossil
     $ cd fossil
     $ fossil clone https://core.tcl-lang.org/tclhttpd
     $ cd tclhttpd
     $ ./configure
     $ make
-    $ sudo chown -R root.wheel /usr/local
-    $ sudo chmod -R 775 /usr/local
     $ make install
     $ mv /usr/local/lib/tclhttpd3.4.3/ /usr/local/lib/tclhttpd3.5.2
 
