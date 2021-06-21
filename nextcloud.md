@@ -14,3 +14,12 @@ https://wiki.archlinux.org/title/MariaDB
 ## php
 
 https://wiki.archlinux.org/title/PHP  
+
+## nextcloud
+
+https://wiki.archlinux.org/title/Nextcloud
+
+### config
+
+
+

@@ -18,6 +18,7 @@
 * zipper  
     required for kmz creation  
     copy folder to /usr/local/lib  
-* lamp.md  
-    install LAMP stack  
+* nextcloud.md  
+    install LAMP stack and nextcloud  
+
 
