@@ -53,12 +53,99 @@ https://wiki.archlinux.org/title/MariaDB
     # systemctl enable --now mariadb
     
 
+Uncomment the following lines in /etc/php/php.ini:
+
+    extension=pdo_mysql
+    extension=mysqli
+
 
 ## nextcloud
 
 https://wiki.archlinux.org/title/Nextcloud
 
-### steps
+make following changes to /etc/php/php.ini
+
+	409c409
+	< memory_limit = 128M
+	---
+	> memory_limit = 512M
+	694c694
+	< post_max_size = 8M
+	---
+	> post_max_size = 10G
+	846c846
+	< upload_max_filesize = 2M
+	---
+	> upload_max_filesize = 10G
+	907,908c907,908
+	< ;extension=bcmath
+	< ;extension=bz2
+	---
+	> extension=bcmath
+	> extension=bz2
+	916c916
+	< ;extension=gd
+	---
+	> extension=gd
+	918,919c918,919
+	< ;extension=gmp
+	< ;extension=iconv
+	---
+	> extension=gmp
+	> extension=iconv
+	921c921
+	< ;extension=intl
+	---
+	> extension=intl
+	923c923
+	< ;extension=mysqli
+	---
+	> extension=mysqli
+	925c925
+	< ;zend_extension=opcache
+	---
+	> zend_extension=opcache
+	927c927
+	< ;extension=pdo_mysql
+	---
+	> extension=pdo_mysql
+	958c958
+	< ;date.timezone =
+	---
+	> date.timezone = Australia/Brisbane
+	1005c1005
+	< ;intl.default_locale =
+	---
+	> ;intl.default_locale = en_AU.UTF-8
+	1338c1338
+	< ;session.save_path = "/tmp"
+	---
+	> session.save_path = "/tmp"
+	1765c1765
+	< ;opcache.enable=1
+	---
+	> opcache.enable=1
+	1771c1771
+	< ;opcache.memory_consumption=128
+	---
+	> opcache.memory_consumption=128
+	1774c1774
+	< ;opcache.interned_strings_buffer=8
+	---
+	> opcache.interned_strings_buffer=8
+	1778c1778
+	< ;opcache.max_accelerated_files=10000
+	---
+	> opcache.max_accelerated_files=10000
+	1796c1796
+	< ;opcache.revalidate_freq=2
+	---
+	> opcache.revalidate_freq=1
+	1803c1803
+	< ;opcache.save_comments=1
+	---
+	> opcache.save_comments=1
+
 
 
 
