@@ -106,7 +106,7 @@ password: N...
 ### create staff user
 
 ```
-# useradd -m -G wheel staff  
+# useradd -m -G wheel,network staff  
 # passwd staff
     J...
 # visudo
