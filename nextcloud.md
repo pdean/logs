@@ -1,4 +1,4 @@
-# install LAMP stack
+# install LAMP stack and nextcloud
 
 https://wiki.archlinux.org/title/Category:Web_applications  
 
@@ -32,6 +32,7 @@ Note: The pipe between sock and fcgi is not allowed to be surrounded by a space!
 
 You can configure PHP-FPM in /etc/php/php-fpm.d/www.conf, but the default setup should work fine.
 Uncomment the following line  
+
     env[PATH] = /usr/local/bin:/usr/bin:/bin    
 
 Start and enable php-fpm.service. Restart httpd.service.
@@ -52,12 +53,6 @@ https://wiki.archlinux.org/title/MariaDB
     # mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
     # systemctl enable --now mariadb
     
-
-Uncomment the following lines in /etc/php/php.ini:
-
-    extension=pdo_mysql
-    extension=mysqli
-
 
 ## nextcloud
 
@@ -145,11 +140,5 @@ make following changes to /etc/php/php.ini
 	< ;opcache.save_comments=1
 	---
 	> opcache.save_comments=1
-
-
-
-
-
-    
 
 
