@@ -28,10 +28,10 @@ And include it at the bottom of `/etc/httpd/conf/httpd.conf`:
 
     Include conf/extra/php-fpm.conf
 
-Note: The pipe between sock and fcgi is not allowed to be surrounded by a space! localhost can be replaced by any string. More here
+Note: The pipe between sock and fcgi is not allowed to be surrounded by a space! localhost can be replaced by any string. More [here](https://httpd.apache.org/docs/2.4/mod/mod_proxy_fcgi.html)
 
 You can configure PHP-FPM in /etc/php/php-fpm.d/www.conf, but the default setup should work fine.
-Uncomment the following line
+Uncomment the following line  
     env[PATH] = /usr/local/bin:/usr/bin:/bin    
 
 Start and enable php-fpm.service. Restart httpd.service.
