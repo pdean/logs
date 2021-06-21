@@ -19,7 +19,25 @@ https://wiki.archlinux.org/title/PHP
 
 https://wiki.archlinux.org/title/Nextcloud
 
-### config
+### steps
+
+    # pacman -S apache mariadb nextcloud php-fpm php-intl
+
+
+    # systemctl enable --now httpd
+
+Enable proxy modules:
+
+	/etc/httpd/conf/httpd.conf
+
+	LoadModule proxy_module modules/mod_proxy.so  
+	LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
+	    
+
+
+    # mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+    # systemctl enable --now mariadb
+    
 
 
 
