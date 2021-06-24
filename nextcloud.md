@@ -53,13 +53,24 @@ https://wiki.archlinux.org/title/MariaDB
     # systemctl enable --now mariadb
     
 
-Uncomment the following lines in /etc/php/php.ini:
-
-    extension=pdo_mysql
-    extension=mysqli
 
 
 ## nextcloud
+
+https://wiki.archlinux.org/title/Nextcloud
+
+### config
+
+unchanged from install
+
+### mariadb
+
+    $ mysql -u root -p
+
+    mysql> CREATE DATABASE nextcloud DEFAULT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci';
+    mysql> GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost' IDENTIFIED BY 'password';
+    mysql> FLUSH PRIVILEGES;
+    mysql> \q
 
 https://wiki.archlinux.org/title/Nextcloud
 
