@@ -64,7 +64,7 @@ unchanged from install
 
 ### mariadb
 
-    $ mysql -u root -p
+    # mysql -u root -p
 
     mysql> CREATE DATABASE nextcloud DEFAULT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci';
     mysql> GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost' IDENTIFIED BY 'password';
@@ -157,4 +157,88 @@ make following changes to /etc/php/php.ini
 	---
 	> opcache.save_comments=1
 
+### php-fpm
 
+    # vim /etc/php/php-fpm.d/nextcloud.conf
+
+    [nextcloud]
+    user = nextcloud
+    group = nextcloud
+    listen = /run/nextcloud/nextcloud.sock
+    env[PATH] = /usr/local/bin:/usr/bin:/bin
+    env[TMP] = /tmp
+
+    ; should be accessible by your web server
+    listen.owner = http
+    listen.group = http
+
+    pm = dynamic
+    pm.max_children = 15
+    pm.start_servers = 2
+    pm.min_spare_servers = 1
+    pm.max_spare_servers = 3
+
+then 
+
+    # mkdir /etc/systemd/system/php-fpm.service.d 
+    # systemctl edit php-fpm.service
+
+    [Service]
+    # Your data directory
+    ReadWritePaths=/var/lib/nextcloud/data
+
+    # Optional: add if you've set the default apps directory to be writable in config.php
+    ReadWritePaths=/usr/share/webapps/nextcloud/apps
+
+    # Optional: unnecessary if you've set 'config_is_read_only' => true in your config.php
+    ReadWritePaths=/usr/share/webapps/nextcloud/config
+    ReadWritePaths=/etc/webapps/nextcloud/config
+
+    # Optional: add if you want to use Nextcloud's internal update process
+    # ReadWritePaths=/usr/share/webapps/nextcloud
+
+
+
+### apache 
+
+    # cp /usr/share/doc/nextcloud/apache.example.conf /etc/httpd/conf/extra/nextcloud.conf
+
+*COMMENT OUT* everything from virtual host down  
+And include it in /etc/httpd/conf/httpd.conf:
+
+    Include conf/extra/nextcloud.conf
+
+then 
+
+    # pacman -S mod_itk
+
+then
+
+    # vim	/etc/httpd/conf/extra/nextcloud.conf
+
+	   <IfModule mpm_itk_module>
+	       AssignUserId nextcloud nextcloud
+	   </IfModule>
+
+then
+
+     # vim 	/etc/httpd/conf/httpd.conf
+
+	LoadModule mpm_itk_module modules/mpm_itk.so
+
+and comment and uncomment
+	#LoadModule mpm_event_module modules/mod_mpm_event.so
+	LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+
+
+
+
+
+then 
+    # systemctl restart php-fpm
+    # systemctl restart httpd
+
+
+### nextcloud config
+
+  
