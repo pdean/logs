@@ -1,9 +1,19 @@
 
 # logs
+
+
+
 * install-lnx1.md    
     basic linux install instructions 
 * gisdb.md  
     install databases and google earth network link server  
+* nextcloud.md  
+    install LAMP stack and nextcloud  
+
+
+## support files
+
+
 * roaddb.scm  
     chicken program to create tmr road location database  
 * view.sql  
@@ -18,7 +28,5 @@
 * zipper  
     required for kmz creation  
     copy folder to /usr/local/lib  
-* nextcloud.md  
-    install LAMP stack and nextcloud  
 
 
