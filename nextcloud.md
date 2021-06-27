@@ -227,16 +227,22 @@ then
 	LoadModule mpm_itk_module modules/mpm_itk.so
 
 and comment and uncomment
-	#LoadModule mpm_event_module modules/mod_mpm_event.so
-	LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+
+	#LoadModule mpm_event_module modules/mod_mpm_event.so  
+	LoadModule mpm_prefork_module modules/mod_mpm_prefork.so  
 
 
 
 
 
 then 
-    # systemctl restart php-fpm
-    # systemctl restart httpd
+
+    # systemctl restart php-fpm  
+    # systemctl restart httpd  
+
+### /tmp disable automatic mount in ram 
+
+    # systemctl mask tmp.mount
 
 
 ### nextcloud config
