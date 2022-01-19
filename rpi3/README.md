@@ -23,5 +23,11 @@
 
 ## nextcloud
 
-[Link to nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html)
+[nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html)  
+[download server](https://nextcloud.com/install/#instructions-server)  
 
+select 'web installer' tab 
+
+```
+wget https://download.nextcloud.com/server/installer/setup-nextcloud.php 
+```
