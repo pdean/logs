@@ -3,7 +3,7 @@
 
 # Arch linux install guide raspberry pi 4
 
-[Read install guide here](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4)
+[install guide](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4)  
 
 `# pacman -Syu`  
 `# pacman -S sudo mc vim`  
