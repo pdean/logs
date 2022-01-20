@@ -20,7 +20,6 @@
 
 [link](https://raspberrypi.stackexchange.com/questions/12977/static-ip-on-arch-linux)
 
-`# systemctl disable --now systemd-networkd.service`
 
 `# vim /etc/netctl/eth0`
 ```
@@ -33,6 +32,10 @@ Gateway='192.168.1.1'
 DNS=('192.168.1.1')
 ```
 `# netctl start eth0`
+
+`# systemctl disable --now systemd-networkd.service`  
+reboot
+
                                                                                                                           
 ## install lamp stack
 
