@@ -5,6 +5,15 @@
 
 [Read install guide here](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4)
 
+`# pacman -Syu`  
+`# pacman -S sudo mc vim`  
+`# pacman -S bash-completion`  
+`# pacman -S man-db man-pages`  
+`# pacman -S avahi nss-mdns`  
+[configure avahi](https://wiki.archlinux.org/title/avahi)  
+
+
+
 ## set static ip
 
 [link](https://raspberrypi.stackexchange.com/questions/12977/static-ip-on-arch-linux)
