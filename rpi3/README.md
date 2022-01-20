@@ -5,15 +5,33 @@
 
 [Read install guide here](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4)
 
+## set static ip
+
+[link](https://raspberrypi.stackexchange.com/questions/12977/static-ip-on-arch-linux)
+
+`# vim /etc/netctl/eth0`
+```
+Description='A basic static ethernet connection'
+Interface=eth0
+Connection=ethernet
+IP=static
+Address=('192.168.1.33/24')
+Gateway='192.168.1.1'
+DNS=('192.168.1.1')
+```
+`# netctl start eth0`
+                                                                                                                          
+## install lamp stack
+
 `# pacman -S apache mariadb php wget`
 
-## apache
+### apache
 
 
-## php
+### php
 
 
-## mariadb
+### mariadb
 
 ```
 # mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
@@ -24,6 +42,11 @@
 ## nextcloud
 
 [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html)  
+
+[database config](https://docs.nextcloud.com/server/latest/admin_manual/configuration_database/linux_database_configuration.html)
+
+
+
 [download server](https://nextcloud.com/install/#instructions-server)  
 
 select 'web installer' tab 
