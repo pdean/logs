@@ -11,6 +11,8 @@
 `# pacman -S man-db man-pages`  
 `# pacman -S avahi nss-mdns`  
 [configure avahi](https://wiki.archlinux.org/title/avahi)  
+`# systemctl disable --now systemd-resolved.service`  
+
 
 
 
@@ -18,13 +20,15 @@
 
 [link](https://raspberrypi.stackexchange.com/questions/12977/static-ip-on-arch-linux)
 
+`# systemctl disable --now systemd-networkd.service`
+
 `# vim /etc/netctl/eth0`
 ```
 Description='A basic static ethernet connection'
 Interface=eth0
 Connection=ethernet
 IP=static
-Address=('192.168.1.33/24')
+Address=('192.168.1.23/24')
 Gateway='192.168.1.1'
 DNS=('192.168.1.1')
 ```
