@@ -31,7 +31,8 @@ Address=('192.168.1.23/24')
 Gateway='192.168.1.1'
 DNS=('192.168.1.1')
 ```
-`# netctl start eth0`
+
+`# netctl enable eth0`
 
 `# systemctl disable --now systemd-networkd.service`  
 reboot
