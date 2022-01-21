@@ -9,6 +9,7 @@
 `# pacman -S sudo mc vim`  
 `# pacman -S bash-completion`  
 `# pacman -S man-db man-pages`  
+`# pacman -S git base-devel`  
 `# pacman -S avahi nss-mdns`  
 [configure avahi](https://wiki.archlinux.org/title/avahi)  
 `# systemctl disable --now systemd-resolved.service`  
@@ -38,6 +39,15 @@ DNS=('192.168.1.1')
 `# rm /etc/resolv.conf`  
 reboot  
 
+## install yay
+
+```
+mkdir build
+cd build
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
                                                                                                                           
 ## install lamp stack
 
