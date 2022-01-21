@@ -12,6 +12,8 @@
 `# pacman -S avahi nss-mdns`  
 [configure avahi](https://wiki.archlinux.org/title/avahi)  
 `# systemctl disable --now systemd-resolved.service`  
+`# rm /etc/resolv.conf`  
+reboot
 
 
 
