@@ -18,7 +18,7 @@
 
 ## set static ip
 
-[link](https://raspberrypi.stackexchange.com/questions/12977/static-ip-on-arch-linux)
+[netctl](https://wiki.archlinux.org/title/netctl)
 
 
 `# vim /etc/netctl/eth0`
