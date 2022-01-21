@@ -12,8 +12,8 @@
 `# pacman -S avahi nss-mdns`  
 [configure avahi](https://wiki.archlinux.org/title/avahi)  
 `# systemctl disable --now systemd-resolved.service`  
-reboot
 
+`# timedatectl set-timezone Australia/Brisbane`  
 
 
 
@@ -34,8 +34,8 @@ DNS=('192.168.1.1')
 ```
 
 `# netctl enable eth0`  
-`# rm /etc/resolv.conf`  
 `# systemctl disable --now systemd-networkd.service`  
+`# rm /etc/resolv.conf`  
 reboot  
 
                                                                                                                           
