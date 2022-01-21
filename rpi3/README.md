@@ -33,10 +33,10 @@ Gateway='192.168.1.1'
 DNS=('192.168.1.1')
 ```
 
-`# netctl enable eth0`
+`# netctl enable eth0`  
 `# rm /etc/resolv.conf`  
 `# systemctl disable --now systemd-networkd.service`  
-reboot
+reboot  
 
                                                                                                                           
 ## install lamp stack
