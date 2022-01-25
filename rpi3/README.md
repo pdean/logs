@@ -6,7 +6,7 @@
 [install guide](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4)  
 
 `# timedatectl set-timezone Australia/Brisbane`  
-
+`# vi /etc/pacman.d/mirrorlist`  
 `# pacman -Syu`  
 `# pacman -S sudo mc vim`  
 `# pacman -S bash-completion`  
@@ -16,14 +16,14 @@
 
 ### avahi
 
+[avahi](https://wiki.archlinux.org/title/avahi)  
 `# pacman -S avahi nss-mdns`  
-[configure avahi](https://wiki.archlinux.org/title/avahi)  
 
 Avahi provides local hostname resolution using a "hostname.local" naming scheme. To enable it, install the nss-mdns package and start/enable `avahi-daemon.service`.
 
-Then, edit the file /etc/nsswitch.conf and change the hosts line to include `mdns_minimal [NOTFOUND=return]` before `resolve` and `dns`:
+Then, edit the file /etc/nsswitch.conf and change the hosts line to include `mdns4_minimal [NOTFOUND=return]` before `resolve` and `dns`:
 
-`hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns`
+`hosts: mymachines mdns4_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns`
 
 
 `# systemctl disable --now systemd-resolved.service`  
