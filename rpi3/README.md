@@ -13,6 +13,9 @@
 `# pacman -S man-db man-pages`  
 `# pacman -S git base-devel`  
 `# visudo`  
+`# useradd -m peter`
+`# passwd peter`
+`# usermod -aG wheel peter`
 
 ### avahi
 
@@ -50,6 +53,7 @@ DNS=('192.168.1.1')
 `# netctl enable eth0`  
 `# systemctl disable --now systemd-networkd.service`  
 `# rm /etc/resolv.conf`  
+`# resolvconf -u`  
 `# reboot  `
 
 ### install yay
