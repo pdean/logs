@@ -5,23 +5,25 @@
 
 [install guide](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4)  
 
+`# timedatectl set-timezone Australia/Brisbane`  
+
 `# pacman -Syu`  
 `# pacman -S sudo mc vim`  
 `# pacman -S bash-completion`  
 `# pacman -S man-db man-pages`  
 `# pacman -S git base-devel`  
+`# visudo`  
 
-## avahi
+### avahi
 
 `# pacman -S avahi nss-mdns`  
 [configure avahi](https://wiki.archlinux.org/title/avahi)  
 `# systemctl disable --now systemd-resolved.service`  
 
-`# timedatectl set-timezone Australia/Brisbane`  
 
 
 
-## set static ip
+### set static ip
 
 [netctl](https://wiki.archlinux.org/title/netctl)
 
@@ -42,7 +44,7 @@ DNS=('192.168.1.1')
 `# rm /etc/resolv.conf`  
 reboot  
 
-## install yay
+### install yay
 
 ```
 $ mkdir build
