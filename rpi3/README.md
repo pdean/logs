@@ -18,6 +18,14 @@
 
 `# pacman -S avahi nss-mdns`  
 [configure avahi](https://wiki.archlinux.org/title/avahi)  
+
+Avahi provides local hostname resolution using a "hostname.local" naming scheme. To enable it, install the nss-mdns package and start/enable `avahi-daemon.service`.
+
+Then, edit the file /etc/nsswitch.conf and change the hosts line to include `mdns_minimal [NOTFOUND=return]` before `resolve` and `dns`:
+
+`hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns`
+
+
 `# systemctl disable --now systemd-resolved.service`  
 
 
