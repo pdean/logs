@@ -10,6 +10,9 @@
 `# pacman -S bash-completion`  
 `# pacman -S man-db man-pages`  
 `# pacman -S git base-devel`  
+
+## avahi
+
 `# pacman -S avahi nss-mdns`  
 [configure avahi](https://wiki.archlinux.org/title/avahi)  
 `# systemctl disable --now systemd-resolved.service`  
