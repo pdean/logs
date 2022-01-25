@@ -50,7 +50,7 @@ DNS=('192.168.1.1')
 `# netctl enable eth0`  
 `# systemctl disable --now systemd-networkd.service`  
 `# rm /etc/resolv.conf`  
-reboot  
+`# reboot  `
 
 ### install yay
 
