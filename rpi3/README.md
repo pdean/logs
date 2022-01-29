@@ -129,6 +129,8 @@ To test whether PHP was correctly configured, create a file called test.php in y
 
 ## nextcloud
 
+[nextcloud in arch wiki](https://wiki.archlinux.org/title/Nextcloud)
+
 [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html)  
 
 [database config](https://docs.nextcloud.com/server/latest/admin_manual/configuration_database/linux_database_configuration.html)
