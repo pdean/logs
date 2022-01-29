@@ -75,6 +75,8 @@ $ makepkg -si
 
 ### apache
 
+`# systemctl enable --now httpd`  
+
 
 ### php
 
