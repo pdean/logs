@@ -5,6 +5,9 @@
 
 [install guide](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4)  
 
+enable fan control  
+edit `/boot/config.txt` inserting `dtoverlay=gpio-fan,gpiopin=14,temp=55000`  
+
 `# timedatectl set-timezone Australia/Brisbane`  
 `# vi /etc/pacman.d/mirrorlist`  
 `# pacman -Syu`  
