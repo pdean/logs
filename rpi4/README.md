@@ -5,6 +5,12 @@
 
 [install guide](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4)  
 
+**don't forget to initialise keys**  
+```
+pacman-key --init
+pacman-key --populate archlinuxarm
+```
+
 enable fan control  
 edit `/boot/config.txt` inserting `dtoverlay=gpio-fan,gpiopin=14,temp=55000`  
 
