@@ -61,6 +61,7 @@ DNS=('192.168.1.1')
 
 `# netctl enable eth0`  
 `# systemctl disable --now systemd-networkd.service`  
+`# systemctl disable --now systemd-networkd.socket`  
 `# rm /etc/resolv.conf`  
 `# resolvconf -u`  
 `# reboot  `
