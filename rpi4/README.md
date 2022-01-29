@@ -78,7 +78,7 @@ $ makepkg -si
                                                                                                                           
 ## install lamp stack
 
-`# pacman -S apache mariadb php wget`
+`# pacman -S apache mariadb php php-apache wget`
 
 ### apache
 
@@ -91,7 +91,6 @@ $ makepkg -si
 
 [php](https://wiki.archlinux.org/title/Apache_HTTP_Server#PHP)  
 
-`# pacman -S php-apache`  
 
 In /etc/httpd/conf/httpd.conf, comment the line:
 
