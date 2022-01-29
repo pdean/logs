@@ -80,6 +80,31 @@ $ makepkg -si
 
 ### php
 
+[php](https://wiki.archlinux.org/title/Apache_HTTP_Server#PHP)  
+`# pacman -S php-apache`  
+In /etc/httpd/conf/httpd.conf, comment the line:
+
+`#LoadModule mpm_event_module modules/mod_mpm_event.so`
+
+and uncomment the line:
+
+`LoadModule mpm_prefork_module modules/mod_mpm_prefork.so`
+
+To enable PHP, add these lines to /etc/httpd/conf/httpd.conf:
+
+* Place this at the end of the LoadModule list:
+
+```
+LoadModule php_module modules/libphp.so
+AddHandler php-script .php
+```
+* Place this at the end of the Include list:
+```
+Include conf/extra/php_module.conf
+```
+Restart httpd.service. 
+
+
 
 ### mariadb
 
