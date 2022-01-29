@@ -16,9 +16,9 @@ edit `/boot/config.txt` inserting `dtoverlay=gpio-fan,gpiopin=14,temp=55000`
 `# pacman -S man-db man-pages`  
 `# pacman -S git base-devel`  
 `# visudo`  
-`# useradd -m peter`
-`# passwd peter`
-`# usermod -aG wheel peter`
+`# useradd -m peter`  
+`# passwd peter`  
+`# usermod -aG wheel peter`  
 
 ### avahi
 
