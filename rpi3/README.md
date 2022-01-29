@@ -75,13 +75,17 @@ $ makepkg -si
 
 ### apache
 
+[apache](https://wiki.archlinux.org/title/Apache_HTTP_Server)
+
 `# systemctl enable --now httpd`  
 
 
 ### php
 
 [php](https://wiki.archlinux.org/title/Apache_HTTP_Server#PHP)  
+
 `# pacman -S php-apache`  
+
 In /etc/httpd/conf/httpd.conf, comment the line:
 
 `#LoadModule mpm_event_module modules/mod_mpm_event.so`
