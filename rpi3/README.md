@@ -104,6 +104,13 @@ Include conf/extra/php_module.conf
 ```
 Restart httpd.service. 
 
+**Test whether PHP works**
+
+To test whether PHP was correctly configured, create a file called test.php in your Apache DocumentRoot directory (e.g. /srv/http/ or ~<username>/public_html/) with the following contents:
+
+```
+<?php phpinfo(); ?>
+```
 
 
 ### mariadb
