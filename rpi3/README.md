@@ -119,6 +119,8 @@ To test whether PHP was correctly configured, create a file called test.php in y
 
 ### mariadb
 
+[mariadb](https://wiki.archlinux.org/title/MariaDB)
+
 ```
 # mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 # systemctl enable --now mariadb
