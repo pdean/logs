@@ -91,7 +91,7 @@ edit `/etc/fstab` adding
 
 ## install lamp stack
 
-`# pacman -S apache mariadb php php-apache wget`
+`# pacman -S apache mariadb php php-apache php-gd wget`
 
 ### apache
 
