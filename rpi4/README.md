@@ -76,15 +76,15 @@ $ cd yay
 $ makepkg -si
 ```
 
-###mount nas as nfs
+### mount nas as nfs
 
 ```
 # mkdir /mnt/qnap
 # pacman -S nfs-utils
 ```
 edit `/etc/fstab` adding  
-`qnap.local:/	/mnt/qnap  nfs 	defaults,timeo=900,retrans=5,_netdev	0	0`
-`# mount -a`
+`qnap.local:/	/mnt/qnap  nfs 	defaults,timeo=900,retrans=5,_netdev	0	0`  
+`# mount -a`  
                                                                                                                           
 
 
