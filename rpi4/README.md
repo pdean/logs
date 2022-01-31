@@ -178,6 +178,7 @@ mysql> \q
 
 ```
 # cd /srv/http
-# wget https://download.nextcloud.com/server/installer/setup-nextcloud.php
+# wget https://download.nextcloud.com/server/releases/latest.tar.bz2
+# tar jxvf latest.tar.bz2
  
 ```
