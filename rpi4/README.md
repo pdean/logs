@@ -180,5 +180,8 @@ mysql> \q
 # cd /srv/http
 # wget https://download.nextcloud.com/server/releases/latest.tar.bz2
 # tar jxvf latest.tar.bz2
+# chown -R http.http nextcloud
+# cd nextcloud
+# php occ  maintenance:install --database "mysql" --database-name "nextcloud"  --database-user "nextcloud" --database-pass "password" --admin-user "admin" --admin-pass "password"
  
 ```
