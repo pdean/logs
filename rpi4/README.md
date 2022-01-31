@@ -152,14 +152,32 @@ To test whether PHP was correctly configured, create a file called test.php in y
 
 [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html)  
 
+[php setup](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html#prerequisites-label)  
+
+In folder `/etc/php/conf.d`  
+create `gd.ini` with contents `extension=gd`  
+create `mysql.ini`  
+```
+extension=pdo_mysql
+extension=mysqli
+```  
+
+
 [database config](https://docs.nextcloud.com/server/latest/admin_manual/configuration_database/linux_database_configuration.html)
 
+```
+# mysql -u root -p
 
+mysql> CREATE DATABASE nextcloud DEFAULT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci';
+mysql> GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost' IDENTIFIED BY 'password';
+mysql> FLUSH PRIVILEGES;
+mysql> \q
+```
 
-[download server](https://nextcloud.com/install/#instructions-server)  
-
-select 'web installer' tab 
+[download server](https://nextcloud.com/install/#instructions-server) 
 
 ```
-wget https://download.nextcloud.com/server/installer/setup-nextcloud.php 
+# cd /srv/http
+# wget https://download.nextcloud.com/server/installer/setup-nextcloud.php
+ 
 ```
