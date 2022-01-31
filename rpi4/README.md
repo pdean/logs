@@ -174,7 +174,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> \q
 ```
 
-[download server](https://nextcloud.com/install/#instructions-server) 
+[download server](https://nextcloud.com/install/#instructions-server)  
 [installing from command line](https://docs.nextcloud.com/server/latest/admin_manual/installation/command_line_installation.html)  
 
 ```
