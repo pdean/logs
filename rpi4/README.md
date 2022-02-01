@@ -169,6 +169,8 @@ create `gd.ini`
 memory_limit=512M
 ```
 
+`# systemctl restart httpd`
+
 
 [database config](https://docs.nextcloud.com/server/latest/admin_manual/configuration_database/linux_database_configuration.html)
 
