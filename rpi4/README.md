@@ -91,7 +91,7 @@ edit `/etc/fstab` adding
 
 ## install lamp stack
 
-`# pacman -S apache mariadb php php-apache php-gd php-imagick wget`
+`# pacman -S apache mariadb php7 php7-apache php7-gd php7-imagick wget`
 
 ### apache
 
@@ -118,12 +118,12 @@ To enable PHP, add these lines to /etc/httpd/conf/httpd.conf:
 * Place this at the end of the LoadModule list:
 
 ```
-LoadModule php_module modules/libphp.so
+LoadModule php7_module modules/libphp7.so
 AddHandler php-script .php
 ```
 * Place this at the end of the Include list:
 ```
-Include conf/extra/php_module.conf
+Include conf/extra/php7_module.conf
 ```
 Restart httpd.service. 
 
@@ -154,7 +154,7 @@ To test whether PHP was correctly configured, create a file called test.php in y
 
 [php setup](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html#prerequisites-label)  
 
-In folder `/etc/php/conf.d`  
+In folder `/etc/php7/conf.d`  
 create `gd.ini` with contents `extension=gd`  
 create `mysql.ini`  
 ```
