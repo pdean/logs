@@ -242,6 +242,7 @@ Alias /nextcloud "/srv/http/nextcloud/"
 
 `$ yay -S openvpn easy-rsa`  
 `$ cp -r /etc/easy-rsa/ .`  
-`$ cd easy-rsa`
-`$ wget https://github.com/TinCanTech/easy-tls/blob/master/easytls`   
+`$ git clone git@github.com:TinCanTech/easy-tls.git`  
+`$ cp easy-tls/easytls easy-rsa/`  
+`$ cd easy-rsa`  
 
