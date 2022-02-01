@@ -202,7 +202,10 @@ edit `/etc/my.cnf.d/server.cnf` and add under `[mariadb-10.6]`
       --database-name "nextcloud"  --database-user "nextcloud" --database-pass "password" \
       --admin-user "admin" --admin-pass "password"
  
+# chown -R http.http nextcloud
 ```
+
+add webserver addresses to trusted domains in `/srv/http/nextcloud/config/config.php`
 
 append to `/etc/httpd/conf/httpd.conf`
 
