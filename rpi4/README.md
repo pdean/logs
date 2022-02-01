@@ -14,6 +14,8 @@ pacman-key --populate archlinuxarm
 enable fan control  
 edit `/boot/config.txt` inserting `dtoverlay=gpio-fan,gpiopin=14,temp=55000`  
 
+[generate locales and set](https://wiki.archlinux.org/title/locale#Generating_locales)
+
 `# timedatectl set-timezone Australia/Brisbane`  
 `# vi /etc/pacman.d/mirrorlist`  
 `# pacman -Syu`  
@@ -91,7 +93,7 @@ edit `/etc/fstab` adding
 
 ## install lamp stack
 
-`# pacman -S apache mariadb php php-apache php-gd php-imagick wget`
+`# pacman -S apache mariadb php7 php7-apache php7-gd php7-imagick wget`
 
 ### apache
 
@@ -118,18 +120,18 @@ To enable PHP, add these lines to /etc/httpd/conf/httpd.conf:
 * Place this at the end of the LoadModule list:
 
 ```
-LoadModule php_module modules/libphp.so
+LoadModule php7_module modules/libphp7.so
 AddHandler php-script .php
 ```
 * Place this at the end of the Include list:
 ```
-Include conf/extra/php_module.conf
+Include conf/extra/php7_module.conf
 ```
 Restart httpd.service. 
 
 **Test whether PHP works**
 
-To test whether PHP was correctly configured, create a file called test.php in your Apache DocumentRoot directory (e.g. /srv/http/ or ~<username>/public_html/) with the following contents:
+To test whether PHP was correctly configured, create a file called `test.php` in `/srv/http/` with the following contents:
 
 ```
 <?php phpinfo(); ?>
@@ -152,14 +154,82 @@ To test whether PHP was correctly configured, create a file called test.php in y
 
 [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html)  
 
+[php setup](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html#prerequisites-label)  
+
+In folder `/etc/php7/conf.d`  
+create `gd.ini` with contents `extension=gd`  
+create `mysql.ini`  
+```
+extension=pdo_mysql
+extension=mysqli
+```  
+
+create `nextcloud.ini`   
+```
+memory_limit=512M
+```
+
+`# systemctl restart httpd`
+
+
 [database config](https://docs.nextcloud.com/server/latest/admin_manual/configuration_database/linux_database_configuration.html)
+
+```
+# mysql -u root -p
+
+mysql> CREATE DATABASE nextcloud DEFAULT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci';
+mysql> GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost' IDENTIFIED BY 'password';
+mysql> FLUSH PRIVILEGES;
+mysql> \q
+```
+edit `/etc/my.cnf.d/server.cnf` and add under `[mariadb-10.6]`  
+`innodb_read_only_compressed = 0`
+
+`# systemctl restart mariadb`
 
 
 
 [download server](https://nextcloud.com/install/#instructions-server)  
-
-select 'web installer' tab 
+[installing from command line](https://docs.nextcloud.com/server/latest/admin_manual/installation/command_line_installation.html)  
 
 ```
-wget https://download.nextcloud.com/server/installer/setup-nextcloud.php 
+# cd /srv/http
+# wget https://download.nextcloud.com/server/releases/latest.tar.bz2
+# tar jxvf latest.tar.bz2
+# chown -R http.http nextcloud
+# cd nextcloud
+# php7 occ  maintenance:install --database "mysql" \
+      --database-name "nextcloud"  --database-user "nextcloud" --database-pass "password" \
+      --admin-user "admin" --admin-pass "password"
+ 
+# chown -R http.http nextcloud
 ```
+
+add webserver addresses to trusted domains in `/srv/http/nextcloud/config/config.php`
+
+append to `/etc/httpd/conf/httpd.conf`
+
+`Include conf/extra/nextcloud.conf`  
+
+and uncomment  
+`LoadModule rewrite_module modules/mod_rewrite.so`
+
+
+
+
+create `/etc/httpd/conf/extra/nextcloud.conf`
+```
+Alias /nextcloud "/srv/http/nextcloud/"
+
+<Directory /srv/http/nextcloud/>
+  Require all granted
+  AllowOverride All
+  Options FollowSymLinks MultiViews
+
+</Directory>
+
+```
+
+
+
+`# systemctl restart httpd`
