@@ -183,7 +183,7 @@ mysql> \q
 # tar jxvf latest.tar.bz2
 # chown -R http.http nextcloud
 # cd nextcloud
-# php occ  maintenance:install --database "mysql" \
+# php7 occ  maintenance:install --database "mysql" \
       --database-name "nextcloud"  --database-user "nextcloud" --database-pass "password" \
       --admin-user "admin" --admin-pass "password"
  
