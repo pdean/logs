@@ -182,6 +182,12 @@ mysql> GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost' IDENTIFIED
 mysql> FLUSH PRIVILEGES;
 mysql> \q
 ```
+edit `/etc/my.cnf.d/server.cnf` and add under `[mariadb-10.6]`  
+`innodb_read_only_compressed = 0`
+
+`# systemctl restart mariadb`
+
+
 
 [download server](https://nextcloud.com/install/#instructions-server)  
 [installing from command line](https://docs.nextcloud.com/server/latest/admin_manual/installation/command_line_installation.html)  
