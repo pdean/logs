@@ -203,3 +203,22 @@ edit `/etc/my.cnf.d/server.cnf` and add under `[mariadb-10.6]`
       --admin-user "admin" --admin-pass "password"
  
 ```
+
+append to `/etc/httpd/conf/httpd.conf`
+
+`Include conf/extra/nextcloud.conf`
+
+create `/etc/httpd/conf/extra/nextcloud.conf`
+```
+Alias /nextcloud "/srv/http/nextcloud/"
+
+<Directory /srv/http/nextcloud/>
+  Require all granted
+  AllowOverride All
+  Options FollowSymLinks MultiViews
+
+</Directory>
+
+```
+
+`# systemctl restart httpd`
