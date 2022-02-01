@@ -113,7 +113,7 @@ get [view.sql](view.sql)
 
 ## Install tclhttpd
 
-install instructions [here](https://github.com/pdean/logs/tree/main/tclhttpd)
+install instructions [here](tclhttpd)
 
 We're just gonna copy the whole /usr/local from the gis machine!
 
