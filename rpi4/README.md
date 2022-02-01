@@ -206,7 +206,13 @@ edit `/etc/my.cnf.d/server.cnf` and add under `[mariadb-10.6]`
 
 append to `/etc/httpd/conf/httpd.conf`
 
-`Include conf/extra/nextcloud.conf`
+`Include conf/extra/nextcloud.conf`  
+
+and uncomment  
+`LoadModule rewrite_module modules/mod_rewrite.so`
+
+
+
 
 create `/etc/httpd/conf/extra/nextcloud.conf`
 ```
@@ -220,5 +226,7 @@ Alias /nextcloud "/srv/http/nextcloud/"
 </Directory>
 
 ```
+
+
 
 `# systemctl restart httpd`
