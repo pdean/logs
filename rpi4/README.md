@@ -251,3 +251,13 @@ $ easyrsa build-ca nopass
 
 
 ```
+
+### openvpn server
+
+
+
+
+### openvpn clients
+
+
+
