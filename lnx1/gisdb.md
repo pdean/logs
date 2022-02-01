@@ -105,7 +105,7 @@ Now it get complex.  The program to load the data to postgres is written in sche
 
 #### create views
 
-get [view.sql](https://github.com/pdean/logs/blob/main/view.sql)
+get [view.sql](view.sql)
 
     psql -U gis <view.sql
 
@@ -135,7 +135,7 @@ and yay to install tcllib from the AUR
 
 then select the number and default all the prompts.
 
-copy [zipper](https://github.com/pdean/logs/tree/main/zipper) folder to /usr/local/lib  
+copy [zipper](zipper) folder to /usr/local/lib  
 
 get the [tclhttpd.service](https://github.com/pdean/logs/blob/main/tclhttpd.service)
 
