@@ -164,7 +164,7 @@ extension=pdo_mysql
 extension=mysqli
 ```  
 
-create `gd.ini`   
+create `nextcloud.ini`   
 ```
 memory_limit=512M
 ```
