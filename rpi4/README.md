@@ -233,3 +233,15 @@ Alias /nextcloud "/srv/http/nextcloud/"
 
 
 `# systemctl restart httpd`
+
+
+## openvpn
+
+[openvpn](https://wiki.archlinux.org/title/OpenVPN)  
+[easy-rsa](https://community.openvpn.net/openvpn/wiki/EasyRSA3-OpenVPN-Howto)  
+
+`$ yay -S openvpn easy-rsa`  
+`$ cp -r /etc/easy-rsa/ .`  
+`$ cd easy-rsa`
+`$ wget https://github.com/TinCanTech/easy-tls/blob/master/easytls`   
+
