@@ -14,6 +14,8 @@ pacman-key --populate archlinuxarm
 enable fan control  
 edit `/boot/config.txt` inserting `dtoverlay=gpio-fan,gpiopin=14,temp=55000`  
 
+[generate locales and set](https://wiki.archlinux.org/title/locale#Generating_locales)
+
 `# timedatectl set-timezone Australia/Brisbane`  
 `# vi /etc/pacman.d/mirrorlist`  
 `# pacman -Syu`  
