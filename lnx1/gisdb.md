@@ -96,7 +96,7 @@ Need to resort the file
     $ file="Road location and traffic data.txt"
     $ tail -n +2 "$file" |sort -o sort.txt -t ',' -k 1,1 -k 2,2 -k 3,3n
 
-Now it get complex.  The program to load the data to postgres is written in scheme. [roaddb.scm](https://github.com/pdean/logs/blob/main/roaddb.scm)
+Now it get complex.  The program to load the data to postgres is written in scheme. [roaddb.scm](roaddb.scm)
 
     # pacman -S chicken
     $ chicken-install -s postgresql
