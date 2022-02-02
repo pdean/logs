@@ -267,4 +267,4 @@ easyrsa build-server-full server3 nopass
 
 [ssmtp](https://wiki.archlinux.org/title/SSMTP)
 
-
+`$ yay -S ssmtp`
