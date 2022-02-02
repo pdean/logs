@@ -248,15 +248,17 @@ $ cp easy-tls/easytls easy-rsa/
 $ cd easy-rsa  
 $ easyrsa init-pki  
 $ easyrsa build-ca nopass  
+$ ./easytls init-tls
+$ ./easytls build-tls-auth
+
+```
+### openvpn server
+```
+easyrsa build-server-full server3 nopass
+./easytls inline-tls-auth server3 0
 
 
 ```
-
-### openvpn server
-
-
-
-
 ### openvpn clients
 
 
