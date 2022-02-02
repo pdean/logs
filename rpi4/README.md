@@ -263,3 +263,8 @@ easyrsa build-server-full server3 nopass
 
 
 
+## ssmtp - simple mail client
+
+[ssmtp](https://wiki.archlinux.org/title/SSMTP)
+
+
