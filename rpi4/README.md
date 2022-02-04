@@ -263,6 +263,7 @@ easyrsa build-server-full server3 nopass
 ### openvpn clients
 
 
+---------------------------------------------
 
 ## ssmtp - simple mail client
 
@@ -270,3 +271,7 @@ easyrsa build-server-full server3 nopass
 (see [here](https://www.andrews-corner.org/downloads) for a 32-bit binary for windows)   
 
 `$ yay -S ssmtp`
+
+---------------------------------------------
+
+## script to create clent certificate and mail
