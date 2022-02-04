@@ -14,6 +14,8 @@ pacman-key --populate archlinuxarm
 enable fan control  
 edit `/boot/config.txt` inserting `dtoverlay=gpio-fan,gpiopin=14,temp=55000`  
 
+**NOTE** rest of instructions are quite general, not just for rpi.
+
 [generate locales and set](https://wiki.archlinux.org/title/locale#Generating_locales)
 
 `# timedatectl set-timezone Australia/Brisbane`  
@@ -41,8 +43,6 @@ Then, edit the file /etc/nsswitch.conf and change the hosts line to include `mdn
 
 
 `# systemctl disable --now systemd-resolved.service`  
-
-
 
 
 ### set static ip
@@ -88,7 +88,7 @@ edit `/etc/fstab` adding
 `qnap.local:/	/mnt/qnap  nfs 	defaults,timeo=900,retrans=5,_netdev	0	0`  
 `# mount -a`  
                                                                                                                           
-
+----------------------------------------------------------------------
 
 
 ## install lamp stack
@@ -149,6 +149,7 @@ To test whether PHP was correctly configured, create a file called `test.php` in
 # systemctl enable --now mariadb
 
 ```
+---------------------------------------------------------------------
 
 ## nextcloud
 
