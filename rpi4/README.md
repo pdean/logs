@@ -278,4 +278,4 @@ easyrsa build-server-full server3 nopass
 
 ---------------------------------------------
 
-## script to create clent certificate and mail
+## script to create client certificate and mail
