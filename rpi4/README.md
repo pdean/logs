@@ -259,8 +259,8 @@ $ ./easytls build-tls-auth
 ```
 ### openvpn server
 ```
-easyrsa build-server-full server3 nopass
-./easytls inline-tls-auth server3 0
+$ easyrsa build-server-full server3 nopass
+$ ./easytls inline-tls-auth server3 0
 
 
 ```
