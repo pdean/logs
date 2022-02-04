@@ -237,6 +237,7 @@ Alias /nextcloud "/srv/http/nextcloud/"
 
 `# systemctl restart httpd`
 
+--------------------------------------------------------------------
 
 ## openvpn
 
