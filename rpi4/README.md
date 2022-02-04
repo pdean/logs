@@ -266,6 +266,6 @@ easyrsa build-server-full server3 nopass
 ## ssmtp - simple mail client
 
 [ssmtp](https://wiki.archlinux.org/title/SSMTP)  
-(see [here](https://www.andrews-corner.org/slrn-windows.html) for a 32-bit binary for windows)   
+(see [here](https://www.andrews-corner.org/downloads) for a 32-bit binary for windows)   
 
 `$ yay -S ssmtp`
