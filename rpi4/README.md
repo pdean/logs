@@ -95,7 +95,7 @@ edit `/etc/fstab` adding
 
 `# pacman -S apache mariadb php7 php7-apache php7-gd php7-imagick wget`
 
-** NOTE ** I'm installing php7 because nextcloud won't work with 8.1 which is current on arch, only 8.0 or lower.  Hard to install 8.0 on rpi.
+**NOTE** I'm installing php7 because nextcloud won't work with 8.1 which is current on arch, only 8.0 or lower.  Hard to install 8.0 on rpi.
 
 ### apache
 
