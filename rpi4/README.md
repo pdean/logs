@@ -271,7 +271,8 @@ $ ./easytls inline-tls-auth server3 0
 
 ## msmtp - simple mail client
 
-[msmtp](https://wiki.archlinux.org/title/Msmtp)  
+[msmtp docs](https://marlam.de/msmtp/documentation/)  
+[msmtp on arch wiki](https://wiki.archlinux.org/title/Msmtp)  
 (see [here](https://www.andrews-corner.org/downloads) for a 32-bit binary for windows)   
 
 `$ yay -S msmtp`
