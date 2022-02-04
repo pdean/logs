@@ -274,7 +274,9 @@ $ ./easytls inline-tls-auth server3 0
 [msmtp docs](https://marlam.de/msmtp/documentation/)  
 [msmtp on arch wiki](https://wiki.archlinux.org/title/Msmtp)  
 (see [here](https://www.andrews-corner.org/downloads) for a 32-bit binary for windows)   
+(see [here](https://reinersmann.wordpress.com/tag/msmtp/) for example on windows)  
 
+install on rpi  
 `$ yay -S msmtp`
 
 ---------------------------------------------
