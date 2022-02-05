@@ -276,7 +276,7 @@ $ ./easytls inline-tls-auth server3 0 add-dh
 ```
 #### openvpn basic server config
 
-`$ mkdir conf`
+`$ mkdir conf`  
 `$ vim conf/basic-udp-server.conf`  
 ```
 proto udp
