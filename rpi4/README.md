@@ -262,14 +262,15 @@ $ cd easyrsa3
 $ cp vars.example vars
 $ ./easyrsa init-pki  
 $ ./easyrsa build-ca nopass  
+$ ./easyrsa gen-dh
 $ ./easytls init-tls
 $ ./easytls build-tls-auth
 
 ```
 ### openvpn server
 ```
-$ easyrsa build-server-full server3 nopass
-$ ./easytls inline-tls-auth server3 0
+$ ./easyrsa build-server-full server3 nopass
+$ ./easytls inline-tls-auth server3 0 add-dh
 
 
 ```
@@ -296,6 +297,10 @@ group nobody
 daemon
 log-append /var/log/openvpn.log
 ```
+
+create server ovpn  
+`cat basic-udp-server.conf server3.inline >server3.ovpn` 
+
 
 ### server setup
 
