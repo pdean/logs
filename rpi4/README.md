@@ -268,12 +268,7 @@ $ ./easytls build-tls-auth
 
 ```
 #### openvpn server
-```
-$ ./easyrsa build-server-full server3 nopass
-$ ./easytls inline-tls-auth server3 0 add-dh
 
-
-```
 #### openvpn basic server config
 
 `$ mkdir conf`  
@@ -299,9 +294,12 @@ daemon
 log-append /var/log/openvpn.log
 ```
 
-create server ovpn  
+#### create server ovpn  
+
 `$ mkdir files`  
-`$ cat conf/basic-udp-server.conf pki/easytls/server3.inline >files/server3.ovpn` 
+`$ ./easyrsa build-server-full server3 nopass`  
+`$ ./easytls inline-tls-auth server3 0 add-dh`  
+`$ cat conf/basic-udp-server.conf pki/easytls/server3.inline >files/server3.ovpn`   
 
 
 ### server setup
@@ -331,12 +329,12 @@ net.ipv6.conf.all.forwarding=1
 
 ### openvpn clients
 
-`$ easyrsa build-client-full frednerk nopass`
 
 #### openvpn basic client config  
-basic-udp-client.conf  
 
 ```
+$ vim conf/basic-udp-client.conf  
+
 client
 proto udp
 remote p.dean.cust.internode.on.net
@@ -348,9 +346,11 @@ nobind
 remote-cert-tls server
 ```
 
-create client ovpn
+#### create client ovpn
 
-`cat basic-udp-client.conf frednerk.inline >frednerk.ovpn`
+`$ ./easyrsa build-client-full frednerk nopass`
+`$ ./easytls inline-tls-auth frednerk 1` 
+`$ cat conf/basic-udp-client.conf pki/easytls/frednerk.inline >files/frednerk.ovpn`
 
 
 
