@@ -366,7 +366,7 @@ remote-cert-tls server
 (see [here](https://reinersmann.wordpress.com/tag/msmtp/) for example on windows)  
 
 install on rpi  
-`$ yay -S msmtp`
+`$ yay -S msmtp msmtp-mta`
 
 ---------------------------------------------
 
