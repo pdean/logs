@@ -267,6 +267,7 @@ $ ./easytls init-tls
 $ ./easytls build-tls-auth
 
 ```
+
 #### openvpn server
 
 #### openvpn basic server config
@@ -348,9 +349,9 @@ remote-cert-tls server
 
 #### create client ovpn
 
-`$ ./easyrsa build-client-full frednerk nopass`
-`$ ./easytls inline-tls-auth frednerk 1` 
-`$ cat conf/basic-udp-client.conf pki/easytls/frednerk.inline >files/frednerk.ovpn`
+`$ ./easyrsa build-client-full frednerk nopass`  
+`$ ./easytls inline-tls-auth frednerk 1`  
+`$ cat conf/basic-udp-client.conf pki/easytls/frednerk.inline >files/frednerk.ovpn`  
 
 
 
