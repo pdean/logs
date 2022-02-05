@@ -300,7 +300,7 @@ log-append /var/log/openvpn.log
 ```
 
 create server ovpn  
-`$ mkdir files`
+`$ mkdir files`  
 `$ cat conf/basic-udp-server.conf pki/easytls/server3.inline >files/server3.ovpn` 
 
 
