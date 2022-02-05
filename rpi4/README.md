@@ -288,6 +288,30 @@ daemon
 log-append /var/log/openvpn.log
 ```
 
+### server setup
+
+#### iptables
+
+```
+# pacman -S iptables
+# systemctl enable --now iptables
+# iptables -t nat -I POSTROUTING -o enp0s25 -s 10.8.0.0/24 -j MASQUERADE
+# iptables-save -f /etc/iptables/iptables.rules
+
+```
+
+#### ipforwarding
+
+```
+# vim /etc/sysctl.d/30-ipforward.conf
+
+net.ipv4.ip_forward=1
+net.ipv6.conf.default.forwarding=1
+net.ipv6.conf.all.forwarding=1
+
+
+```
+
 
 ### openvpn clients
 
