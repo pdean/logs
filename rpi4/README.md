@@ -245,6 +245,8 @@ Alias /nextcloud "/srv/http/nextcloud/"
 [easy-rsa windows release](https://github.com/OpenVPN/easy-rsa/releases/)  
 [easy-rsa usage on openvpn wiki](https://community.openvpn.net/openvpn/wiki/EasyRSA3-OpenVPN-Howto#PKIprocedure:ProducingyourcompletePKIontheCAmachine)  
 
+`$ yay -S openvpn`
+
 ### easy-rsa3
 
 ```
