@@ -247,7 +247,7 @@ Alias /nextcloud "/srv/http/nextcloud/"
 
 `$ yay -S openvpn`
 
-### easy-rsa3
+### easyrsa3
 
 ```
 $ cd
@@ -267,16 +267,17 @@ $ ./easytls init-tls
 $ ./easytls build-tls-auth
 
 ```
-### openvpn server
+#### openvpn server
 ```
 $ ./easyrsa build-server-full server3 nopass
 $ ./easytls inline-tls-auth server3 0 add-dh
 
 
 ```
-#### openvpmn basic server config
+#### openvpn basic server config
 
-basic-udp-server.conf  
+`$ mkdir conf`
+`$ vim conf/basic-udp-server.conf`  
 ```
 proto udp
 port 1194
@@ -299,7 +300,8 @@ log-append /var/log/openvpn.log
 ```
 
 create server ovpn  
-`cat basic-udp-server.conf server3.inline >server3.ovpn` 
+`$ mkdir files`
+`$ cat conf/basic-udp-server.conf pki/easytls/server3.inline >files/server3.ovpn` 
 
 
 ### server setup
