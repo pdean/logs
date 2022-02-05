@@ -264,10 +264,21 @@ $ ./easytls inline-tls-auth server3 0
 
 
 ```
+#### openvpmn basic server config
+
+
 ### openvpn clients
+
+`$ easyrsa build-client-full frednerk nopass`
+
+#### openvpn basic client config
+
+
 
 
 #### script to create ovpn file
+
+[see here](https://linuxize.com/post/how-to-set-up-an-openvpn-server-on-ubuntu-18-04/) for the idea  
 
 ```
 #!/bin/bash
