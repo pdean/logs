@@ -311,7 +311,7 @@ create server ovpn
 ```
 # pacman -S iptables
 # systemctl enable --now iptables
-# iptables -t nat -I POSTROUTING -o enp0s25 -s 10.8.0.0/24 -j MASQUERADE
+# iptables -t nat -I POSTROUTING -o eth0 -s 10.200.0.0/24 -j MASQUERADE
 # iptables-save -f /etc/iptables/iptables.rules
 
 ```
