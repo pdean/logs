@@ -266,13 +266,47 @@ $ ./easytls inline-tls-auth server3 0
 ```
 #### openvpmn basic server config
 
+basic-udp-server.conf  
+```
+proto udp
+port 1194
+dev tun
+
+server 10.200.0.0 255.255.255.0
+
+persist-key
+persist-tun
+keepalive 10 60
+
+push "route 192.168.1.0 255.255.255.0"
+topology subnet
+
+user  nobody
+group nobody
+
+daemon
+log-append /var/log/openvpn.log
+```
+
 
 ### openvpn clients
 
 `$ easyrsa build-client-full frednerk nopass`
 
-#### openvpn basic client config
+#### openvpn basic client config  
+basic-udp-client.conf  
 
+```
+client
+proto udp
+remote p.dean.cust.internode.on.net
+port 1194
+
+dev tun
+nobind
+
+remote-cert-tls server
+```
 
 
 
