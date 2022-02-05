@@ -245,14 +245,21 @@ Alias /nextcloud "/srv/http/nextcloud/"
 [easy-rsa windows release](https://github.com/OpenVPN/easy-rsa/releases/)  
 [easy-rsa usage on openvpn wiki](https://community.openvpn.net/openvpn/wiki/EasyRSA3-OpenVPN-Howto#PKIprocedure:ProducingyourcompletePKIontheCAmachine)  
 
+### easy-rsa3
+
 ```
-$ yay -S openvpn easy-rsa  
-$ cp -r /etc/easy-rsa/ .  
+$ cd
+$ mkdir git
+$ cd git
+$ git clone git@github.com:OpenVPN/easy-rsa.git
 $ git clone git@github.com:TinCanTech/easy-tls.git  
-$ cp easy-tls/easytls easy-rsa/  
-$ cd easy-rsa  
-$ easyrsa init-pki  
-$ easyrsa build-ca nopass  
+$ cd 
+$ cp -r git/easy-rsa/easyrsa3/ .  
+$ cp git/easy-tls/easytls easyrsa3/  
+$ cd easyrsa3  
+$ cp vars.example vars
+$ ./easyrsa init-pki  
+$ ./easyrsa build-ca nopass  
 $ ./easytls init-tls
 $ ./easytls build-tls-auth
 
