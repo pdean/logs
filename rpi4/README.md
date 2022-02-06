@@ -326,10 +326,13 @@ net.ipv6.conf.all.forwarding=1
 
 
 ```
-
+#### start server
+```
+$ sudo cp easyrsa3/files/server3.ovpn /etc/openvpn/server/server3.conf
+$ sudo systemctl enable --now openvpn-server@server3.service
+```
 
 ### openvpn clients
-
 
 #### openvpn basic client config  
 
