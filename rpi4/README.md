@@ -386,11 +386,6 @@ account default : gmail
 `$ chmod 600 ~/.msmtprc`
 
 ```
-/etc/mail.rc
-
-set mta=/usr/bin/msmtp
-```
-```
 /etc/msmtprc
 
 aliases               /etc/aliases
