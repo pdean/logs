@@ -338,7 +338,7 @@ $ vim conf/basic-udp-client.conf
 
 client
 proto udp
-remote p.dean.cust.internode.on.net
+remote mywebaddress
 port 1194
 
 dev tun
@@ -366,7 +366,50 @@ remote-cert-tls server
 (see [here](https://reinersmann.wordpress.com/tag/msmtp/) for example on windows)  
 
 install on rpi  
-`$ yay -S msmtp msmtp-mta`
+`$ yay -S msmtp msmtp-mta s-nail`  
+```
+~/.msmtprc
+
+account gmail
+tls on
+auth on
+host smtp.gmail.com
+port 587
+user xxx@gmail.com
+from xxx@gmail.com
+password ********
+
+# Set a default account
+account default : gmail
+```
+
+`$ chmod 600 ~/.msmtprc`
+
+```
+/etc/mail.rc
+
+set mta=/usr/bin/msmtp
+```
+```
+/etc/msmtprc
+
+aliases               /etc/aliases
+```
+```
+/etc/aliases
+
+# Example aliases file
+     
+# Send root to me
+root: xxx@gmail.com
+   
+# Send everything else to me
+default: zzz@gmail.com
+```
+
+test  
+`$ printf "Subject: Test\nhello there username." | msmtp -a default username@domain.com`
+
 
 ---------------------------------------------
 
