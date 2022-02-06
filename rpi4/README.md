@@ -26,9 +26,9 @@ edit `/boot/config.txt` inserting `dtoverlay=gpio-fan,gpiopin=14,temp=55000`
 `# pacman -S man-db man-pages`  
 `# pacman -S git base-devel`  
 `# visudo`  
-`# useradd -m peter`  
-`# passwd peter`  
-`# usermod -aG wheel peter`  
+`# useradd -m xxxx`  
+`# passwd xxxx`  
+`# usermod -aG wheel xxxx`  
 
 ### avahi
 
@@ -417,7 +417,7 @@ test
 
 ## send with mutt
 
-`echo "find attached your ovpn file"|mutt -a easyrsa3/files/frednerk.ovpn -s "frednerk.ovpn" -- p.dean@internode.on.net`
+`echo "find attached your ovpn file"|mutt -a easyrsa3/files/frednerk.ovpn -s "frednerk.ovpn" -- xxx@gmail.com
 
 ```
 ~/.muttrc
