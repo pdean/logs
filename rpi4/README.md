@@ -370,14 +370,21 @@ install on rpi
 ```
 ~/.msmtprc
 
+
+# Set default values for all following accounts.
+defaults
+auth           on
+tls            on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        ~/.msmtp.log
+
+# Gmail
 account gmail
-tls on
-auth on
 host smtp.gmail.com
 port 587
-user xxx@gmail.com
-from xxx@gmail.com
-password ********
+user xxxxx@gmail.com
+from xxxxx@gmail.com
+password xxxxx@
 
 # Set a default account
 account default : gmail
@@ -407,5 +414,22 @@ test
 
 
 ---------------------------------------------
+
+## send with mutt
+
+`echo "find attached your ovpn file"|mutt -a easyrsa3/files/frednerk.ovpn -s "frednerk.ovpn" -- p.dean@internode.on.net`
+
+```
+~/.muttrc
+
+
+set sendmail="/usr/bin/msmtp"
+set use_from=yes
+set realname="xxx yyy"
+set from=zzzz@gmail.com
+set envelope_from=yes
+```
+
+---------------------------------------
 
 ## script to create client certificate and mail
