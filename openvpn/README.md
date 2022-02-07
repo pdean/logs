@@ -29,14 +29,14 @@ testconf.sh
 
 cd
 cd easyrsa3
+rm -r conf
 mkdir conf
 cd conf
 
-grep -Ev "^\s*$|^#|^;|^ca|^cert|^tls|^key|^dh" /usr/share/openvpn/examples/server.conf >server.conf
-sed -i 's/10\.8/10.200/' server.conf
+grep -Ev "^\s*$|^#|^;|^ca|^cert|^tls|^key|^dh" /usr/share/openvpn/examples/server.conf >basicserver.conf
+sed -i 's/10\.8/10.200/' basicserver.conf
 
 
-grep -Ev "^\s*$|^#|^;|^ca|^cert|^tls|^key|^dh" /usr/share/openvpn/examples/client.conf >client.conf
-sed -i 's/my-server-1/MY.REAL.SERVER.Name/' client.conf
+grep -Ev "^\s*$|^#|^;|^ca|^cert|^tls|^key|^dh" /usr/share/openvpn/examples/client.conf >basicclient.conf
+sed -i 's/my-server-1/xxxxxxx.net/' basicclient.conf
 
-```
