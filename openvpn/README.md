@@ -50,3 +50,13 @@ cat conf/basicserver.conf pki/easytls/server.inline >ovpn/server.ovpn
 ./easytls inline-tls-crypt client
 cat conf/basicclient.conf pki/easytls/client.inline >ovpn/client.ovpn
 
+
+```
+firewall.sh
+
+#!/bin/sh
+
+grep -Ev "eth1|^\s*$|^#" /usr/share/openvpn/examples/firewall.sh 
+
+
+```
