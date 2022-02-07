@@ -310,8 +310,15 @@ log-append /var/log/openvpn.log
 ```
 # pacman -S iptables
 # systemctl enable --now iptables
-# iptables -t nat -I POSTROUTING -o eth0 -s 10.200.0.0/24 -j MASQUERADE
-# iptables-save -f /etc/iptables/iptables.rules
+
+# iptables -A INPUT -i tun+ -j ACCEPT
+# iptables -A FORWARD -i tun+ -j ACCEPT
+# iptables -A FORWARD -s 10.200.0.0/24 -j ACCEPT
+# iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+# iptables -t nat -A POSTROUTING -s 10.200.0.0/24 -o eth0 -j MASQUERADE
+
+# iptables-save > /etc/iptables/iptables.rules
+# systemctl restart iptables
 
 ```
 
