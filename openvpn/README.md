@@ -29,6 +29,8 @@ testconf.sh
 
 cd
 cd easyrsa3
+rm -r ovpn
+mkdir ovpn
 rm -r conf
 mkdir conf
 cd conf
@@ -36,7 +38,15 @@ cd conf
 grep -Ev "^\s*$|^#|^;|^ca|^cert|^tls|^key|^dh" /usr/share/openvpn/examples/server.conf >basicserver.conf
 sed -i 's/10\.8/10.200/' basicserver.conf
 
-
 grep -Ev "^\s*$|^#|^;|^ca|^cert|^tls|^key|^dh" /usr/share/openvpn/examples/client.conf >basicclient.conf
 sed -i 's/my-server-1/xxxxxxx.net/' basicclient.conf
+
+cd ..
+./easyrsa build-server-full server nopass
+./easytls inline-tls-crypt server add-dh
+cat conf/basicserver.conf pki/easytls/server.inline >ovpn/server.ovpn
+
+./easyrsa build-client-full client nopass
+./easytls inline-tls-crypt client
+cat conf/basicclient.conf pki/easytls/client.inline >ovpn/client.ovpn
 
