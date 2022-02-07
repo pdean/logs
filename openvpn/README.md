@@ -37,6 +37,6 @@ sed -i 's/10\.8/10.200/' server.conf
 
 
 grep -Ev "^\s*$|^#|^;|^ca|^cert|^tls|^key|^dh" /usr/share/openvpn/examples/client.conf >client.conf
-sed -i 's/my-server-1/p.dean.cust.internode.on.net/' client.conf
+sed -i 's/my-server-1/MY.REAL.SERVER.Name/' client.conf
 
 ```
