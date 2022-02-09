@@ -14,8 +14,10 @@ net.ipv6.conf.all.forwarding=1
 
 install, enable and start iptables
 
-`# iptables -t nat -A POSTROUTING -s 10.200.0.0/24 -o eth0 -j MASQUERADE`
-`# iptables-save -f /etc/iptables/iptables.rules`
+```
+# iptables -t nat -A POSTROUTING -s 10.200.0.0/24 -o eth0 -j MASQUERADE
+# iptables-save -f /etc/iptables/iptables.rules
+```
 
 
 ## create a new pki in current directory (use root login)
