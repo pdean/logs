@@ -102,6 +102,7 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
 [easyrsa on github](https://github.com/OpenVPN/easy-rsa)  
 [easytls on github](https://github.com/TinCanTech/easy-tls)  
 [easrsa3 howto](https://community.openvpn.net/openvpn/wiki/EasyRSA3-OpenVPN-Howto#PKIprocedure:ProducingyourcompletePKIontheCAmachine)  
+[easyrsa releases](https://github.com/OpenVPN/easy-rsa/releases/)
 
 ## install on network drive w:
 
