@@ -22,7 +22,7 @@ alias mc='. /usr/lib/mc/mc-wrapper.sh'
 
 ## vim
 
-*.vimrc*
+**.vimrc**
 
 ```
 set nocompatible
