@@ -1,6 +1,9 @@
-# openvpn server/client config
 
-## server port forward
+# openvpn on linux
+
+## openvpn server/client config
+
+### server port forward
 
 ```
 /etc/sysctl.d/30-ipforward.conf
@@ -10,7 +13,7 @@ net.ipv6.conf.default.forwarding=1
 net.ipv6.conf.all.forwarding=1
 ```
 
-## server iptables
+### server iptables
 
 install, enable and start iptables
 
@@ -20,7 +23,7 @@ install, enable and start iptables
 ```
 
 
-## create a new pki in current directory (use root login)
+### create a new pki in current directory (use root login)
 
 need to add ssh key to github first
 
@@ -48,7 +51,7 @@ cp vars.example vars
 
 ```
 
-## create test server and client key
+### create test server and client key
 
 in same directory as above
 
@@ -93,3 +96,11 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
 
 
 ```
+
+# easyrsa on windows
+
+## install on network drive w:
+
+* copy C:/Program Files/OpenVPN to w:  
+* download easyrsa, unzip and copy to w:/openvpn/easyrsa
+
