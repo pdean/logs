@@ -1,4 +1,4 @@
-# various useful rc file recipes
+# rc files
 
 ## bash
 
