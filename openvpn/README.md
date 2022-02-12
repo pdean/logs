@@ -105,6 +105,7 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
 * download easyrsa, unzip and copy to W:/OpenVPN/easy-rsa
 * download easytls and copy to W:/OpenVPN/easy-rsa
 * create W:/OpenVPN/easy-rsa/vars with
-    export EASYTLS_base_dir="W:/OpenVPN"  
-    export EASYTLS_tmp_dir="W:/tmp"  
+
+        export EASYTLS_base_dir="W:/OpenVPN"  
+        export EASYTLS_tmp_dir="W:/tmp"  
 
