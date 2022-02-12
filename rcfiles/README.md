@@ -51,7 +51,22 @@ colorscheme murphy
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 ```
 
+## plod
 
+**.plodrc**
+
+```
+$PROMPT = 0;
+$CRYPTCMD = "/usr/bin/crypt";
+$EDITOR = "/usr/bin/vim";
+$VISUAL = "/usr/bin/vim";
+$PAGER =  "/usr/bin/less";
+$LOGDIR = "$HOME/sync";
+$LOGFILE  = "log";
+$KEYVAL = "??????";
+$STAMP = sprintf("%02d/%02d/%04d, %02d:%02d --", $DD, $MM, $YY+1900, $hh, $mm);
+
+```
 
 ## mutt
 
