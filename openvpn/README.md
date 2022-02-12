@@ -106,7 +106,7 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
 ## install on network drive w:
 
 * copy C:/Program Files/OpenVPN to w:  
-* download easyrsa windows release, unzip and copy to W:/OpenVPN/easy-rsa
+* download easyrsa windows release, unzip and copy contents to W:/OpenVPN/easy-rsa
 * download easytls script and copy to W:/OpenVPN/easy-rsa
 * create W:/OpenVPN/easy-rsa/vars with
 
