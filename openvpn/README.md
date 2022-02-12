@@ -108,4 +108,16 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
 
         export EASYTLS_base_dir="W:/OpenVPN"  
         export EASYTLS_tmp_dir="W:/tmp"  
+* create w:/tmp
+* start shell with EasyRSA-Start.bat
+* initialize pki
 
+        ./easyrsa init-pki
+        ./easyrsa --batch build-ca nopass
+        ./easyrsa gen-dh
+        ./easytls init-tls
+        ./easytls build-tls-crypt
+
+
+
+        
