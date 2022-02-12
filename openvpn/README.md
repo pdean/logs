@@ -99,11 +99,15 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
 
 # easyrsa on windows
 
+[easyrsa on github](https://github.com/OpenVPN/easy-rsa)  
+[easytls on github](https://github.com/TinCanTech/easy-tls)  
+[easrsa3 howto](https://community.openvpn.net/openvpn/wiki/EasyRSA3-OpenVPN-Howto#PKIprocedure:ProducingyourcompletePKIontheCAmachine)  
+
 ## install on network drive w:
 
 * copy C:/Program Files/OpenVPN to w:  
-* download easyrsa, unzip and copy to W:/OpenVPN/easy-rsa
-* download easytls and copy to W:/OpenVPN/easy-rsa
+* download easyrsa windows release, unzip and copy to W:/OpenVPN/easy-rsa
+* download easytls script and copy to W:/OpenVPN/easy-rsa
 * create W:/OpenVPN/easy-rsa/vars with
 
         export EASYTLS_base_dir="W:/OpenVPN"  
