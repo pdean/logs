@@ -109,6 +109,8 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
         export EASYTLS_base_dir="W:/OpenVPN"  
         export EASYTLS_tmp_dir="W:/tmp"  
 * create w:/tmp
+* copy basic config files from old location to easy-rsa/conf
+* create easy-rsa/ovpn 
 * start shell with EasyRSA-Start.bat
 * initialize pki
 
@@ -117,6 +119,25 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
         ./easyrsa gen-dh
         ./easytls init-tls
         ./easytls build-tls-crypt
+
+* create server key
+
+        export SERVER=server1
+        ./easyrsa build-server-full $SERVER nopass
+        ./easytls inline-tls-crypt $SERVER add-dh
+        cat conf/basicserver.conf pki/easytls/${SERVER}.inline >ovpn/${SERVER}.ovpn
+
+* install server key (see linux above)
+* create client keys
+
+        export CLIENT=client1
+        ./easyrsa build-client-full $CLIENT nopass
+        ./easytls inline-tls-crypt $CLIENT
+        cat conf/basicclient.conf pki/easytls/${CLIENT}.inline >ovpn/${CLIENT}.ovpn
+
+* script to create and email all client keys in a file
+
+        shouldn't be hard
 
 
 
