@@ -143,25 +143,25 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
 
 * script to create and email all client keys in a file
 
-shouldn't be hard, just need to send email from command line  
-[7 Command Line Utilities to Easily Send Email Using SMTP  ](https://www.raymond.cc/blog/sending-email-using-command-line-useful-for-downtime-alert-notification/)
+    shouldn't be hard, just need to send email from command line  
+    [7 Command Line Utilities to Easily Send Email Using SMTP  ](https://www.raymond.cc/blog/sending-email-using-command-line-useful-for-downtime-alert-notification/)
 
 
 
 
-```
-FILE=$1
-while read CLIENT EMAIL; do
-    echo "creating $CLIENT key ..."
-    ./easyrsa build-client-full $CLIENT nopass
-    ./easytls inline-tls-crypt $CLIENT
-    cat conf/basicclient.conf pki/easytls/${CLIENT}.inline >ovpn/${CLIENT}.ovpn
+    ```
+    FILE=$1
+    while read CLIENT EMAIL; do
+        echo "creating $CLIENT key ..."
+        ./easyrsa build-client-full $CLIENT nopass
+        ./easytls inline-tls-crypt $CLIENT
+        cat conf/basicclient.conf pki/easytls/${CLIENT}.inline >ovpn/${CLIENT}.ovpn
 
 
-    echo "emailing ${CLIENT}.ovpn to $EMAIL ... "
-    swithmail /s  /from xxxxxxx@gmail.com /pass xxxxxxxxx@ /server smtp.gmail.com /p 587 /SSL /to $EMAIL /sub ${CLIENT}.ovpn /b "your ovpn file attached" /a ovpn/${CLIENT}.ovpn
+        echo "emailing ${CLIENT}.ovpn to $EMAIL ... "
+        swithmail /s  /from xxxxxxx@gmail.com /pass xxxxxxxxx@ /server smtp.gmail.com /p 587 /SSL /to $EMAIL /sub ${CLIENT}.ovpn /b "your ovpn file attached" /a ovpn/${CLIENT}.ovpn
 
-done < $FILE
+    done < $FILE
 
-```
+    ```
 
