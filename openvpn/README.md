@@ -164,4 +164,14 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
     done < $FILE
 
     ```
+    The file could just contain emails, and the client stripped off the front.  A serial number could be added eg
 
+    ``` 
+    SERIAL=2
+    FILE=$1
+    while read EMAIL; do
+        CLIENT=${EMAIL%@*}$SERIAL
+        ...
+    ```
+        
+       
