@@ -142,8 +142,20 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
 
 * script to create and email all client keys in a file
 
-        shouldn't be hard
+shouldn't be hard, just need to send email from command line
+
+```
+FILE=$1
+while read CLIENT EMAIL; do
+    echo "creating $CLIENT key ..."
+    ./easyrsa build-client-full $CLIENT nopass
+    ./easytls inline-tls-crypt $CLIENT
+    cat conf/basicclient.conf pki/easytls/${CLIENT}.inline >ovpn/${CLIENT}.ovpn
 
 
+    echo "emailing ${CLIENT}.ovpn to $EMAIL ... "
 
-        
+done < $FILE
+
+```
+
