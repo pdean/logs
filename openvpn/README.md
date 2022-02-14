@@ -142,7 +142,11 @@ echo "your ovpn file"|mutt -s ${CLIENT}.ovpn -a ovpn/${CLIENT}.ovpn -- xxxxxxxxx
 
 * script to create and email all client keys in a file
 
-shouldn't be hard, just need to send email from command line
+shouldn't be hard, just need to send email from command line  
+[7 Command Line Utilities to Easily Send Email Using SMTP  ](https://www.raymond.cc/blog/sending-email-using-command-line-useful-for-downtime-alert-notification/)
+
+
+
 
 ```
 FILE=$1
