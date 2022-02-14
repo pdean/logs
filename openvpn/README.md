@@ -1,5 +1,7 @@
 
-# openvpn on linux
+# openvpn on arch linux
+
+`# pacman -S openvpn`
 
 ## openvpn server/client config
 
