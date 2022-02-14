@@ -154,6 +154,7 @@ while read CLIENT EMAIL; do
 
 
     echo "emailing ${CLIENT}.ovpn to $EMAIL ... "
+    swithmail /s  /from xxxxxxx@gmail.com /pass xxxxxxxxx@ /server smtp.gmail.com /p 587 /SSL /to $EMAIL /sub ${CLIENT}.ovpn /b "your ovpn file attached" /a ovpn/${CLIENT}.ovpn
 
 done < $FILE
 
