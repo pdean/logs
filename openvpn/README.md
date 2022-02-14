@@ -1,7 +1,7 @@
 
 # openvpn on arch linux
 
-`# pacman -S openvpn`
+`# pacman -S openvpn iptables`
 
 ## openvpn server/client config
 
@@ -17,9 +17,8 @@ net.ipv6.conf.all.forwarding=1
 
 ### server iptables
 
-install, enable and start iptables
-
 ```
+# systemctl enable --now iptables
 # iptables -t nat -A POSTROUTING -s 10.200.0.0/24 -o eth0 -j MASQUERADE
 # iptables-save -f /etc/iptables/iptables.rules
 ```
