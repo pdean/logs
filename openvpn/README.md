@@ -22,6 +22,23 @@ install, enable and start iptables
 # iptables-save -f /etc/iptables/iptables.rules
 ```
 
+### allow mdns over vpn
+
+```
+# cd /etc/avahi
+# diff avahi-daemon.conf.orig avahi-daemon.conf
+33c33
+< #allow-point-to-point=no
+---
+> allow-point-to-point=yes
+58c58
+< #enable-reflector=no
+---
+> enable-reflector=yes
+
+```
+
+
 
 ### create a new pki in current directory (use root login)
 
