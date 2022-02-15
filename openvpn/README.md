@@ -43,7 +43,7 @@ net.ipv6.conf.all.forwarding=1
 
 ### create a new pki in current directory (use root login)
 
-need to add ssh key to github first
+**NOTE** need to add ssh key to github first
 
 ```
 pkitest.sh
