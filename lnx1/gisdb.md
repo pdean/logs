@@ -38,6 +38,10 @@ insert these lines after 127.0.0.1
 change listen_addresses to
 
     listen_addresses = '*'
+
+or
+    psql
+    ALTER SYSTEM SET listen_addresses TO '*';
     
     
     # systemctl restart postgresql
