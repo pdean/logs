@@ -113,6 +113,16 @@ get [view.sql](view.sql)
 
     psql -U gis <view.sql
 
+## postgresql tasks
+
+### backup and restore to different box
+
+    pg_dump -h alarmpi3.local -U gis -F c gis |pg_restore -U gis -d gis
+
+### search_path
+
+    gis=# show search_path;
+    gis=# set search_path to qspatial,tmr2;
     
 
 ## Install tclhttpd
