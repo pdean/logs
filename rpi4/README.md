@@ -443,3 +443,5 @@ set envelope_from=yes
 ---------------------------------------
 
 ## script to create client certificate and mail
+
+see [openvpn](https://github.com/pdean/logs/tree/main/openvpn) for more up to date instructions
