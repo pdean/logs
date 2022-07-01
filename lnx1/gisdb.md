@@ -151,7 +151,7 @@ then select the number and default all the prompts.
 
 copy [zipper](zipper) folder to /usr/local/lib  
 
-get the [tclhttpd.service](https://github.com/pdean/logs/blob/main/tclhttpd.service)
+get the [tclhttpd.service](https://github.com/pdean/logs/blob/main/lnx1/tclhttpd.service)
 
     $ sudo cp tclhttpd.service /etc/systemd/system
     $ sudo systemctl enable --now tclhttpd.service
