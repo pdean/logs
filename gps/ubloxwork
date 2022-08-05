@@ -1,0 +1,5 @@
+export UBXOPTS="-P 18 -v 2"
+ubxtool -p RESET
+ubxtool -p CFG-RATE,100
+ubxtool -p MODEL,4
+ubxtool -p SAVE
