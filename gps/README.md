@@ -1,5 +1,9 @@
 [modeline]: # ( vim: set ft=markdown sts=4 sw=4 et: )
 
+# gpsd
+
+[gpsd](https://gpsd.gitlab.io/gpsd/index.html)
+
 
 # ublox config from gpsd
 
