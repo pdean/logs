@@ -119,6 +119,12 @@ get [view.sql](view.sql)
 
     pg_dump -h alarmpi3.local -U gis -F c gis |pg_restore -U gis -d gis
 
+or just some tables
+```
+pg_dump -h alarmpi3.local -U gis -F c -t 'qspatial.qld*' -v gis >dcdb.dump
+pg_restore -h lnx1.northgroup.local -U gis -d gis  -v dcdb.dump
+```
+
 ### search_path
 
     gis=# show search_path;
