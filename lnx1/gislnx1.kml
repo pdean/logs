@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Folder>
+	<name>GIS lnx1</name>
+	<visibility>0</visibility>
+	<open>1</open>
+	<description>just tick the boxes</description>
+    
+	<NetworkLink>
+		<name>Testing</name>
+		<visibility>0</visibility>
+		<description>Test</description>
+		<Link>
+			<href>http://lnx1.northgroup.local:8015/gis/testing?</href>
+			<refreshInterval>2</refreshInterval>
+			<viewRefreshMode>onStop</viewRefreshMode>
+			<viewRefreshTime>1</viewRefreshTime>
+			<httpQuery>QUERY=mrkcnd_de%3D%27GOOD%27</httpQuery>
+		</Link>
+	</NetworkLink>
+
+	<NetworkLink>
+		<name>SCDB</name>
+		<visibility>0</visibility>
+		<description>SCDB</description>
+		<Link>
+			<href>http://lnx1.northgroup.local:8015/gis/scdb?</href>
+			<refreshInterval>2</refreshInterval>
+			<viewRefreshMode>onStop</viewRefreshMode>
+			<viewRefreshTime>1</viewRefreshTime>
+		</Link>
+	</NetworkLink>
+    
+	<NetworkLink>
+		<name>Qld ANJ (DATUM)</name>
+		<visibility>0</visibility>
+		<open>1</open>
+		<description>Qld ANJ</description>
+		<Link>
+			<href>http://lnx1.northgroup.local:8015/gis/anj?</href>
+			<refreshInterval>2</refreshInterval>
+			<viewRefreshMode>onStop</viewRefreshMode>
+			<viewRefreshTime>1</viewRefreshTime>
+		</Link>
+	</NetworkLink>
+    
+	<NetworkLink>
+		<name>TMR 1km marks</name>
+		<visibility>0</visibility>
+		<description>TMR 1km marks</description>
+		<Link>
+			<href>http://lnx1.northgroup.local:8015/gis/tmr1km?</href>
+			<refreshInterval>2</refreshInterval>
+			<viewRefreshMode>onStop</viewRefreshMode>
+			<viewRefreshTime>1</viewRefreshTime>
+		</Link>
+	</NetworkLink>
+    
+    <NetworkLink>
+		<name>TMR Roadloc</name>
+		<visibility>0</visibility>
+		<description>TMR Roadloc</description>
+		<Link>
+			<href>http://lnx1.northgroup.local:8015/gis/tmrroadloc?</href>
+			<refreshInterval>2</refreshInterval>
+			<viewRefreshMode>onStop</viewRefreshMode>
+			<viewRefreshTime>1</viewRefreshTime>
+		</Link>
+	</NetworkLink>
+    
+	<NetworkLink>
+		<name>DCDB</name>
+		<visibility>0</visibility>
+		<description>DCDB</description>
+		<Link>
+			<href>http://lnx1.northgroup.local:8015/gis/dcdb?</href>
+			<refreshInterval>2</refreshInterval>
+			<viewRefreshMode>onStop</viewRefreshMode>
+			<viewRefreshTime>1</viewRefreshTime>
+		</Link>
+	</NetworkLink>
+    
+	<NetworkLink>
+		<name>Road Corridors</name>
+		<visibility>0</visibility>
+		<description>roads</description>
+		<Link>
+			<href>http://lnx1.northgroup.local:8015/gis/roads?</href>
+			<refreshInterval>2</refreshInterval>
+			<viewRefreshMode>onStop</viewRefreshMode>
+			<viewRefreshTime>1</viewRefreshTime>
+		</Link>
+	</NetworkLink>
+
+</Folder>
+</kml>
