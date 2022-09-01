@@ -1,6 +1,7 @@
 # gpio links for rpi
 
 * [adding /dev/gpiomem](https://chee.snoot.club/2020/12/02/gpio-alarm/)
+* [a better way - see bottom](https://archlinuxarm.org/wiki/Raspberry_Pi)  
 * [cacheberry pi](https://github.com/jclement/Cacheberry-Pi)
 
 ## gpiozero docs
