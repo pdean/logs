@@ -6,6 +6,7 @@
 ## gpiozero docs
 
 * [rotary encoder](https://gpiozero.readthedocs.io/en/stable/recipes.html#rotary-encoder)  
+* [rgbled](https://gpiozero.readthedocs.io/en/stable/recipes.html#full-color-led)  
 
 
 
