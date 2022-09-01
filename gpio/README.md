@@ -9,6 +9,7 @@
 * [rotary encoder](https://gpiozero.readthedocs.io/en/stable/recipes.html#rotary-encoder)  
 * [rotary encoder api](https://gpiozero.readthedocs.io/en/stable/api_input.html#rotaryencoder)  
 * [rgbled](https://gpiozero.readthedocs.io/en/stable/recipes.html#full-color-led)  
+* [rgbled api](https://gpiozero.readthedocs.io/en/stable/api_output.html#rgbled)  
 
 
 
