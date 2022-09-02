@@ -17,6 +17,7 @@
 ## adafruit docs
 
 * [16x2 lcd](https://www.adafruit.com/product/181)  
+* [backpack](https://core-electronics.com.au/i2c-spi-character-lcd-backpack.html)  
 * [drive-a-16x2-lcd-directly-with-a-raspberry-pi/python-code](https://learn.adafruit.com/drive-a-16x2-lcd-directly-with-a-raspberry-pi/python-code)  
 * [i2c backpack](https://learn.adafruit.com/i2c-spi-lcd-backpack/python-circuitpython)  
 
