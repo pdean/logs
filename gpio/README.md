@@ -6,6 +6,7 @@
 
 ## gpiozero docs
 
+* [sparkfun rotary encoder](https://core-electronics.com.au/rotary-encoder-illuminated-rgb-45018.html)  
 * [rotary encoder](https://gpiozero.readthedocs.io/en/stable/recipes.html#rotary-encoder)  
 * [rotary encoder api](https://gpiozero.readthedocs.io/en/stable/api_input.html#rotaryencoder)  
 * [rgbled](https://gpiozero.readthedocs.io/en/stable/recipes.html#full-color-led)  
@@ -16,4 +17,7 @@
 ## adafruit docs
 
 * [drive-a-16x2-lcd-directly-with-a-raspberry-pi/python-code](https://learn.adafruit.com/drive-a-16x2-lcd-directly-with-a-raspberry-pi/python-code)  
+
+
+* [1.8" tft](https://core-electronics.com.au/1-8-18-bit-color-tft-lcd-display-with-microsd-card-breakout-st7735r.html)  
 * [circuitpython displayio quickstart](https://learn.adafruit.com/1-8-tft-display/circuitpython-displayio-quickstart-2)  
