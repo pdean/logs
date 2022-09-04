@@ -32,4 +32,7 @@
 * [circuitpython displayio quickstart](https://learn.adafruit.com/1-8-tft-display/circuitpython-displayio-quickstart-2)  
 
 
+## demo
 
+* [rotary encoder menus with web interface](https://github.com/petervflocke/rotaryencoder_rpi)  
+* [rotary encoder menu with lists](https://hackaday.io/project/178368-menus-for-micropython)  
