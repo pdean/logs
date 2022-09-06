@@ -26,6 +26,7 @@
 
 ## adafruit docs
 
+* [charlcd library](https://docs.circuitpython.org/projects/charlcd/en/latest/index.html)  
 * [drive-a-16x2-lcd-directly-with-a-raspberry-pi/python-code](https://learn.adafruit.com/drive-a-16x2-lcd-directly-with-a-raspberry-pi/python-code)  
 * [i2c backpack](https://learn.adafruit.com/i2c-spi-lcd-backpack/python-circuitpython)  
 
