@@ -195,6 +195,8 @@ def location():
                 if (event == "CLICK"):
                     cur.close()
                     conn.close()
+                    gpsp.running = False
+                    del gpsp
                     return
                 elif event == "UP":
                     if shift > 0:
