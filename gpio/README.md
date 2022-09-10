@@ -35,5 +35,6 @@
 
 ## demo
 
+* [Control RPI with rotary encoder, lcd and/or web user gui](https://forums.raspberrypi.com/viewtopic.php?t=166484)  
 * [rotary encoder menus with web interface](https://github.com/petervflocke/rotaryencoder_rpi)  
 * [rotary encoder menu with lists](https://hackaday.io/project/178368-menus-for-micropython)  
