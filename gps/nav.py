@@ -49,6 +49,7 @@ lcd = characterlcd.Character_LCD_Mono(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6,
 from subprocess import Popen, PIPE
 from time import sleep
 from datetime import datetime
+from gpiozero import CPUTemperature
 
 # looking for an active Ethernet or WiFi device
 def find_interface():
@@ -76,31 +77,44 @@ def run_cmd(cmd):
     return output.decode('ascii')
 
 def info():
-    # wipe LCD screen before we start
-    lcd.clear()
 
-    # before we start the main loop - detect active network device and ip address
-    sleep(1)
+    shift = 0
+    lines = lcd_rows
+    cols = lcd_columns
+
     interface = find_interface()
     ip_address = parse_ip(interface)
 
+    lcd.clear()
+
     while True:
+        sleep(1)
 
-        # date and time
-        lcd_line_1 = datetime.now().strftime('%b %d  %H:%M:%S\n')
+        cpu = CPUTemperature()
+        output = []
+        output.append(datetime.now().strftime('%b %d  %H:%M:%S'))
+        output.append('temp=%.1fC' % (float(cpu.temperature)))
+        output.append(ip_address)
 
-        # current ip address
-        lcd_line_2 = ip_address
+        line = 0
+        items = len(output)
+        for item in output[shift:shift+lines]:
+            lcd.cursor_position(0,line)
+            lcd.message = item.ljust(cols)
+            line += 1
 
-        # combine both lines into one update to the display
-        lcd.message = lcd_line_1 + lcd_line_2
-
-        sleep(2)
-        
         if (not eventq.empty()):
             event = eventq.get()
             if (event == "CLICK"):
                 return
+            elif event == "UP":
+                if shift > 0:
+                    shift -= 1
+            elif event == "DOWN":
+                if shift < items - lines:
+                    shift += 1
+
+
 
 # location
 
@@ -161,6 +175,7 @@ def location():
 
     shift = 0
     lines = lcd_rows
+    cols = lcd_columns
 
     gpsp = GpsPoller() # create the thread
     gpsp.start() # start it up
@@ -170,24 +185,24 @@ def location():
         report = gpsp.get_current_value()
         if report['class'] == 'TPV':
             output = []
-            output.append(datetime.now().strftime('%H:%M:%S     '))
-            output.append(report.time.split('T')[1]+"     ")
-            output.append("Lat %.6f     " % (report.lat))
-            output.append("Lon %.6f     " % (report.lon))
+            output.append(datetime.now().strftime('%H:%M:%S'))
+            output.append(report.time.split('T')[1])
+            output.append("Lat %.6f" % (report.lat))
+            output.append("Lon %.6f" % (report.lon))
 
             pos = (report.lon,report.lat)
             cur.execute(sql, pos)
             roadloc = cur.fetchone()
             (ch,os,sec,code,desc) = roadloc
-            output.append("%s_%s               " % (sec,code))
-            output.append("ch %.2f km          " % (ch/1000))
-            output.append("os %.0f m           " %(os))
+            output.append("%s_%s" % (sec,code))
+            output.append("ch %.2f km" % (ch/1000))
+            output.append("os %.0f m" %(os))
 
             line = 0
             items = len(output)
             for item in output[shift:shift+lines]:
                 lcd.cursor_position(0,line)
-                lcd.message = item
+                lcd.message = item.ljust(cols)
                 line += 1
 
             if (not eventq.empty()):
