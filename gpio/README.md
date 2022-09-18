@@ -6,7 +6,8 @@
 
 ## hardware
 
-* [sparkfun rotary encoder](https://core-electronics.com.au/rotary-encoder-illuminated-rgb-45018.html)  
+* [rotary encoder](https://core-electronics.com.au/rotary-encoder-extras.html)  
+* [sparkfun rgb rotary encoder](https://core-electronics.com.au/rotary-encoder-illuminated-rgb-45018.html)  
 * [16x2 lcd](https://www.adafruit.com/product/181)  
 * [backpack](https://core-electronics.com.au/i2c-spi-character-lcd-backpack.html)  
 * [1.8" tft](https://core-electronics.com.au/1-8-18-bit-color-tft-lcd-display-with-microsd-card-breakout-st7735r.html)  
