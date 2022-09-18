@@ -11,6 +11,7 @@
 * [16x2 lcd](https://www.adafruit.com/product/181)  
 * [backpack](https://core-electronics.com.au/i2c-spi-character-lcd-backpack.html)  
 * [1.8" tft](https://core-electronics.com.au/1-8-18-bit-color-tft-lcd-display-with-microsd-card-breakout-st7735r.html)  
+* [usb-serial](https://core-electronics.com.au/adafruit-cp2102n-friend-usb-to-serial-converter.html)  
 * [RTC](https://core-electronics.com.au/adafruit-pcf8523-real-time-clock-assembled-breakout-board.html)  
 
 
