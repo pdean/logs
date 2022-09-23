@@ -1,7 +1,7 @@
 # menu with rotary encoder and lcd
 
 # rotary encoder
-from gpiozero import RotaryEncoder, Button
+from gpiozero import RotaryEncoder, Button, LED
 from queue import SimpleQueue
 
 rotor = RotaryEncoder(21, 20)
@@ -21,15 +21,33 @@ button.when_pressed = click
 rotor.when_rotated_clockwise = rotup
 rotor.when_rotated_counter_clockwise = rotdown
 
+# leds
+
+blue  = LED(5)
+green = LED(6)
+red   = LED(13)
+
+def alloff():
+    blue.off()
+    green.off()
+    red.off()
+
+alloff()
+
 # lcd
+
+
+# charlcd
+
 
 import board
 import digitalio
 import adafruit_character_lcd.character_lcd as characterlcd
 
+
 # Modify this if you have a different sized character LCD
-lcd_columns = 16
-lcd_rows = 2
+lcd_columns = 20
+lcd_rows = 4
 
 # compatible with all versions of RPI as of Jan. 2019
 # v1 - v3B+
@@ -43,6 +61,53 @@ lcd_d7 = digitalio.DigitalInOut(board.D18)
 # Initialise the lcd class
 lcd = characterlcd.Character_LCD_Mono(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6,
                                       lcd_d7, lcd_columns, lcd_rows)
+
+
+# charlcd with backpack spi
+
+'''
+import busio
+import adafruit_character_lcd.character_lcd_spi as character_lcd
+
+# Modify this if you have a different sized character LCD
+lcd_columns = 20
+lcd_rows = 4
+
+# Backpack connection configuration:
+clk = board.SCK  # Pin connected to backpack CLK.
+data = board.MOSI  # Pin connected to backpack DAT/data.
+latch = board.D5  # Pin connected to backpack LAT/latch.
+
+# Initialise SPI bus.
+spi = busio.SPI(clk, MOSI=data)
+
+# Initialise the LCD class
+latch = digitalio.DigitalInOut(latch)
+lcd = character_lcd.Character_LCD_SPI(spi, latch, lcd_columns, lcd_rows)
+lcd._shift_register._device.baudrate=10000000
+
+'''
+
+#charlcd with backpack i2c
+
+'''
+
+import board
+import busio
+import adafruit_character_lcd.character_lcd_i2c as character_lcd
+
+# Modify this if you have a different sized Character LCD
+lcd_columns = 20
+lcd_rows = 4
+
+# Initialise I2C bus.
+#i2c = board.I2C()  # uses board.SCL and board.SDA
+i2c = busio.I2C(board.SCL, board.SDA)
+
+# Initialise the lcd class
+lcd = character_lcd.Character_LCD_I2C(i2c, lcd_columns, lcd_rows)
+
+'''
 
 # system info menu
 
@@ -77,6 +142,9 @@ def run_cmd(cmd):
     return output.decode('ascii')
 
 def info():
+
+    alloff()
+    green.blink()
 
     shift = 0
     lines = lcd_rows
@@ -161,7 +229,7 @@ sql = """
                            st_endpoint(s.geog::geometry)::geography) as b0,
                 st_distance(st_startpoint(s.geog::geometry)::geography, p.geog) as d1,
                 st_azimuth(st_startpoint(s.geog::geometry)::geography, p.geog) as b1
-            from tmr.segs as s,
+            from tmr2.segs as s,
               (select st_setsrid(
                   st_point(%s,%s),4283)::geography as geog) as p
             where left(code,1) = any(string_to_array('123AKQ', NULL))
@@ -172,6 +240,9 @@ sql = """
 def location():
     conn = psycopg2.connect("host=localhost dbname=gis user=gis")
     cur = conn.cursor()
+
+    alloff()
+    red.blink()
 
     shift = 0
     lines = lcd_rows
@@ -185,18 +256,30 @@ def location():
         report = gpsp.get_current_value()
         if report['class'] == 'TPV':
             output = []
-            output.append(datetime.now().strftime('%H:%M:%S'))
-            output.append(report.time.split('T')[1])
-            output.append("Lat %.6f" % (report.lat))
-            output.append("Lon %.6f" % (report.lon))
+            if report.mode == 3:
+                output.append(datetime.now().strftime('%H:%M:%S'))
+                output.append(report.time.split('T')[1])
 
-            pos = (report.lon,report.lat)
-            cur.execute(sql, pos)
-            roadloc = cur.fetchone()
-            (ch,os,sec,code,desc) = roadloc
-            output.append("%s_%s" % (sec,code))
-            output.append("ch %.2f km" % (ch/1000))
-            output.append("os %.0f m" %(os))
+                #print(output)
+
+                output.append("Lat %.6f" % (report.lat))
+                output.append("Lon %.6f" % (report.lon))
+
+                pos = (report.lon,report.lat)
+                cur.execute(sql, pos)
+                roadloc = cur.fetchone()
+                (ch,os,sec,code,desc) = roadloc
+                output.append("%s_%s" % (sec,code))
+                output.append("ch %.3f km" % (ch/1000))
+                output.append("os %.0f m" %(os))
+            else:
+                output.append("mode %d" % (report.mode))
+                output.append("no fix")
+                output.append("")
+                output.append("")
+                shift = 0
+
+
 
             line = 0
             items = len(output)
@@ -248,6 +331,11 @@ def main():
     
     menu = ["info","location","navigation","poweroff"]
     action = [info,location,navigation,poweroff]
+
+    alloff()
+    blue.blink()
+
+
     highlight = 0
     shift = 0
     lines = lcd_rows
@@ -269,6 +357,10 @@ def main():
         event = eventq.get()
         if event == "CLICK":
             action[shift+highlight]()
+
+            alloff()
+            blue.blink()
+
         elif event == "UP":
             if highlight > 0:
                 highlight -= 1
@@ -283,6 +375,6 @@ def main():
                     shift += 1
 
 
-eventq.put("DOWN")
+#eventq.put("DOWN")
 eventq.put("CLICK")
 main()
