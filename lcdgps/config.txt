@@ -1,0 +1,19 @@
+# See /boot/overlays/README for all available options
+
+dtoverlay=vc4-kms-v3d
+#dtoverlay=gpio-fan,gpiopin=14,temp=65000
+initramfs initramfs-linux.img followkernel
+
+dtparam=audio=on
+
+device_tree_param=spi=on
+dtparam=i2c_arm=on
+dtoverlay=i2c-rtc,pcf8523
+
+dtoverlay=rotary-encoder,pin_a=21,pin_b=20,relative_axis=1
+dtoverlay=gpio-key,gpio=16,label=ENT,keycode=28
+dtoverlay=gpio-key,gpio=19,label=ESC,keycode=1
+
+[pi4]
+# Run as fast as firmware / board allows
+arm_boost=1
