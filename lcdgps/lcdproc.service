@@ -1,0 +1,12 @@
+[Unit]
+Description=lcdproc client
+Requires=lcdd.service
+After=network-online.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/lcdproc -c /usr/local/etc/lcdproc.conf
+
+[Install]
+WantedBy=multi-user.target
+
