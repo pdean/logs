@@ -1,7 +1,7 @@
 [Unit]
 Description=lcdproc client
 Requires=lcdd.service
-After=network-online.target
+After=lcdd.service
 
 [Service]
 Type=forking

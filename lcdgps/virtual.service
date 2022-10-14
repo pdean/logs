@@ -1,6 +1,6 @@
 [Unit]
 Description=evsieve client
-Requires=network.target
+After=syslog.target network.target
 
 [Service]
 Type=notify
