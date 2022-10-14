@@ -1,0 +1,17 @@
+[Unit]
+Description=evsieve client
+Requires=network.target
+
+[Service]
+Type=notify
+ExecStart=evsieve \
+    --input /dev/input/by-path/platform-rotary@15-event \
+    --map rel:x:-1 key:down:1 key:down:0 \
+    --map rel:x:1 key:up:1 key:up:0 \
+    --input /dev/input/by-path/platform-button@10-event \
+    --input /dev/input/by-path/platform-button@13-event \
+    --output name=virtual
+
+[Install]
+WantedBy=multi-user.target
+
