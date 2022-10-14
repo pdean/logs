@@ -81,7 +81,7 @@ proc run {file} {
 
             if {!$new && [abs [- $dist $odist]] > [/ 15.0 1000.0]} {
                 set new 1
-                puts [format "    skip %s - %s" odist dist]
+                puts [format "    skip %s - %s" $odist $dist]
             }
 
             if {!$new} {
