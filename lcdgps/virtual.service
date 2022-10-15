@@ -10,6 +10,7 @@ ExecStart=evsieve \
     --map rel:x:1 key:up:1 key:up:0 \
     --input /dev/input/by-path/platform-button@10-event \
     --input /dev/input/by-path/platform-button@13-event \
+    --input /dev/input/by-id/usb-Logitech_USB_Receiver-if01-event-kbd \
     --output name=virtual
 
 [Install]
