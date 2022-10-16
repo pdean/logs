@@ -1,3 +1,5 @@
+#!/usr/bin/env tclsh
+#
 # tmrchainage
 
 namespace path {::tcl::mathop ::tcl::mathfunc}
@@ -47,18 +49,24 @@ proc roadloc {x y} {
 # lcd
 
 proc lcdread {} {
-    global lcd wid hgt
-    set res [gets $lcd]
-    set cmd [lindex $res 0]
+    global lcd wid hgt listen 
+    if {[gets $lcd line] < 0} {return}
+    set cmd [lindex $line 0]
     if {$cmd eq "connect"} {
-        set wid [lindex $res 7]
-        set hgt [lindex $res 9]
+        set wid [lindex $line 7]
+        set hgt [lindex $line 9]
     }
     if {$cmd eq "success"} { return }
-    if {$cmd eq "listen"} { return }
-    if {$cmd eq "ignore"} { return }
+    if {$cmd eq "listen"} {
+        set listen [lindex $line 1]
+        return
+    }
+    if {$cmd eq "ignore"} { 
+        set listen {}
+        return 
+    }
 
-    puts $res
+    puts $line
 }
 
 proc lcdputs {str} {
@@ -77,6 +85,12 @@ proc tmrinit {} {
 }
 
 proc tmrupdate {tpv} {
+    global listen 
+    if {$listen ne "tmr"} {
+#        puts -nonewline "."
+#        flush stdout
+        return
+    }
     dict with tpv {
         if {[info exists mode]} {
             if {$mode >= 2} {
@@ -89,22 +103,29 @@ proc tmrupdate {tpv} {
                 lcdputs "widget_set tmr tmr3 1 3 {$sec}"
                 lcdputs "widget_set tmr tmr4 1 4 {$chos}"
             } else {
-                lcdputs "widget_set tmr tmr1 1 1 NA"
-                lcdputs "widget_set tmr tmr2 1 2 NA"
-                lcdputs "widget_set tmr tmr3 1 3 NA"
-                lcdputs "widget_set tmr tmr4 1 4 NA"
+                lcdputs "widget_set tmr tmr1 1 1 NO"
+                lcdputs "widget_set tmr tmr2 1 2 FIX"
+                lcdputs "widget_set tmr tmr3 1 3 { }"
+                lcdputs "widget_set tmr tmr4 1 4 { }"
             }
+        } else {
+            lcdputs "widget_set tmr tmr1 1 1 NO"
+            lcdputs "widget_set tmr tmr2 1 2 GPS?"
+            lcdputs "widget_set tmr tmr3 1 3 { }"
+            lcdputs "widget_set tmr tmr4 1 4 { }"
         }
     }
 }
 
 proc lcdinit {} {
-    global lcd
+    global lcd listen 
     set lcd [socket localhost 13666]
+    chan configure $lcd -blocking no
     chan event $lcd readable [list lcdread]
     lcdputs "hello"
     vwait wid
-    lcdputs "client_set name {Road Nav}"
+    lcdputs "client_set name {lcdgps}"
+    set listen {}
     tmrinit
 }
 
@@ -118,7 +139,8 @@ package require json
 
 proc gpsread {} {
     global gps
-    set data [::json::json2dict [gets $gps]]
+    if {[gets $gps line] < 0} { return }
+    set data [::json::json2dict $line]
     dict with data {
         if {$class eq "POLL"} {
             if {[info exists tpv]} {
@@ -145,6 +167,7 @@ proc gpspoll {} {
 proc gpsinit {} {
     global gps
     set gps [socket localhost 2947]
+    chan configure $gps -blocking off
     chan event $gps readable [list gpsread]
     gpsputs {?WATCH={"enable":true}}
     gpspoll
