@@ -161,7 +161,7 @@ proc gpsputs {cmd} {
 
 proc gpspoll {} {
     gpsputs {?POLL;}
-    after 100 [list gpspoll]
+    after 125 [list gpspoll]
 }
 
 proc gpsinit {} {
