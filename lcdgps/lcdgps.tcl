@@ -49,7 +49,7 @@ proc roadloc {x y} {
 # lcd
 
 proc lcdread {} {
-    global lcd wid hgt listen timer
+    global lcd wid hgt listen
     if {[gets $lcd line] < 0} {return}
     set cmd [lindex $line 0]
     if {$cmd eq "connect"} {
@@ -64,7 +64,7 @@ proc lcdread {} {
     }
     if {$cmd eq "ignore"} { 
         set listen {}
-        after cancel $timer
+        gpsstop
         return 
     }
 
@@ -153,6 +153,11 @@ proc gpsputs {cmd} {
     global gps
     puts $gps $cmd
     flush $gps
+}
+
+proc gpsstop {} {
+    global timer
+    after cancel $timer
 }
 
 proc gpspoll {} {
