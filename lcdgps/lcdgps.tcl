@@ -49,7 +49,7 @@ proc roadloc {x y} {
 # lcd
 
 proc lcdread {} {
-    global lcd wid hgt listen 
+    global lcd wid hgt listen timer
     if {[gets $lcd line] < 0} {return}
     set cmd [lindex $line 0]
     if {$cmd eq "connect"} {
@@ -59,10 +59,12 @@ proc lcdread {} {
     if {$cmd eq "success"} { return }
     if {$cmd eq "listen"} {
         set listen [lindex $line 1]
+        gpspoll
         return
     }
     if {$cmd eq "ignore"} { 
         set listen {}
+        after cancel $timer
         return 
     }
 
@@ -85,12 +87,6 @@ proc tmrinit {} {
 }
 
 proc tmrupdate {tpv} {
-    global listen 
-    if {$listen ne "tmr"} {
-#        puts -nonewline "."
-#        flush stdout
-        return
-    }
     dict with tpv {
         if {[info exists mode]} {
             if {$mode >= 2} {
@@ -160,8 +156,9 @@ proc gpsputs {cmd} {
 }
 
 proc gpspoll {} {
+    global timer
     gpsputs {?POLL;}
-    after 125 [list gpspoll]
+    set timer [after 125 [list gpspoll]]
 }
 
 proc gpsinit {} {
