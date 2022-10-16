@@ -49,7 +49,7 @@ proc roadloc {x y} {
 # lcd
 
 proc lcdread {} {
-    global lcd wid hgt listen
+    global lcd wid hgt 
     if {[gets $lcd line] < 0} {return}
     set cmd [lindex $line 0]
     if {$cmd eq "connect"} {
@@ -58,16 +58,13 @@ proc lcdread {} {
     }
     if {$cmd eq "success"} { return }
     if {$cmd eq "listen"} {
-        set listen [lindex $line 1]
         gpspoll
         return
     }
     if {$cmd eq "ignore"} { 
-        set listen {}
         gpsstop
         return 
     }
-
     puts $line
 }
 
@@ -114,14 +111,13 @@ proc tmrupdate {tpv} {
 }
 
 proc lcdinit {} {
-    global lcd listen 
+    global lcd 
     set lcd [socket localhost 13666]
     chan configure $lcd -blocking no
     chan event $lcd readable [list lcdread]
     lcdputs "hello"
     vwait wid
     lcdputs "client_set name {lcdgps}"
-    set listen {}
     tmrinit
 }
 
