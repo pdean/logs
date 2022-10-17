@@ -168,7 +168,6 @@ proc gpsinit {} {
     chan configure $gps -blocking off
     chan event $gps readable [list gpsread]
     gpsputs {?WATCH={"enable":true}}
-    gpspoll
 }
 
 lcdinit
