@@ -12,31 +12,31 @@ tdbc::postgres::connection create db {*}$conninfo
 
 set query [db prepare {
 
-          SELECT (d1 * cos(b1-b0) + tstart * 1000) as ch,
-                 (d1 * sin(b1-b0)) as os,
-                 section,
-                 code,
-                 description
-          FROM
-            (SELECT section,
-                    code,
-                    description,
-                    tstart,
-                    tend,
-                    ST_DISTANCE(ST_STARTPOINT(s.geog::geometry)::geography,
-                                ST_ENDPOINT(s.geog::geometry)::geography) as d0,
-                    ST_AZIMUTH(ST_STARTPOINT(s.geog::geometry)::geography,
-                               ST_ENDPOINT(s.geog::geometry)::geography) as b0,
-                    ST_DISTANCE(ST_STARTPOINT(s.geog::geometry)::geography, p.geog) as d1,
-                    ST_AZIMUTH(ST_STARTPOINT(s.geog::geometry)::geography, p.geog) as b1
-                FROM 
-                    tmr3.segs as s 
-                    CROSS JOIN
-                    (SELECT 
-                        ST_SETSRID(
-                            ST_POINT(CAST(:x as float),CAST(:y as float)),4283)::geography as geog) as p
-                WHERE left(code,1) = any(string_to_array('123AKQ', NULL))
-                ORDER by s.geog <-> p.geog limit 1) as foo
+    SELECT (d1 * cos(b1-b0) + tstart * 1000) as ch,
+         (d1 * sin(b1-b0)) as os,
+         section,
+         code,
+         description
+    FROM
+        (SELECT section,
+            code,
+            description,
+            tstart,
+            tend,
+            ST_DISTANCE(ST_STARTPOINT(s.geog::geometry)::geography,
+                        ST_ENDPOINT(s.geog::geometry)::geography) as d0,
+            ST_AZIMUTH(ST_STARTPOINT(s.geog::geometry)::geography,
+                       ST_ENDPOINT(s.geog::geometry)::geography) as b0,
+            ST_DISTANCE(ST_STARTPOINT(s.geog::geometry)::geography, p.geog) as d1,
+            ST_AZIMUTH(ST_STARTPOINT(s.geog::geometry)::geography, p.geog) as b1
+        FROM 
+            tmr3.segs as s 
+        CROSS JOIN
+            (SELECT 
+                ST_SETSRID(
+                    ST_POINT(CAST(:x as float),CAST(:y as float)),4283)::geography as geog) as p
+        WHERE left(code,1) = any(string_to_array('123AKQ', NULL))
+        ORDER by s.geog <-> p.geog limit 1) as foo
 
 }]
 
