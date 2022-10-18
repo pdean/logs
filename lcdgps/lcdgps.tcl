@@ -32,8 +32,9 @@ set query [db prepare {
                 FROM 
                     tmr3.segs as s 
                     CROSS JOIN
-                    (SELECT ST_SETSRID(
-                        ST_POINT(CAST(:x as float),CAST(:y as float)),4283)::geography as geog) as p
+                    (SELECT 
+                        ST_SETSRID(
+                            ST_POINT(CAST(:x as float),CAST(:y as float)),4283)::geography as geog) as p
                 WHERE left(code,1) = any(string_to_array('123AKQ', NULL))
                 ORDER by s.geog <-> p.geog limit 1) as foo
 
