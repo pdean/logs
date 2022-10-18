@@ -12,28 +12,30 @@ tdbc::postgres::connection create db {*}$conninfo
 
 set query [db prepare {
 
-          select (d1 * cos(b1-b0) + tstart * 1000) as ch,
+          SELECT (d1 * cos(b1-b0) + tstart * 1000) as ch,
                  (d1 * sin(b1-b0)) as os,
                  section,
                  code,
                  description
-          from
-            (select section,
+          FROM
+            (SELECT section,
                     code,
                     description,
                     tstart,
                     tend,
-                    st_distance(st_startpoint(s.geog::geometry)::geography,
-                                st_endpoint(s.geog::geometry)::geography) as d0,
-                    st_azimuth(st_startpoint(s.geog::geometry)::geography,
-                               st_endpoint(s.geog::geometry)::geography) as b0,
-                    st_distance(st_startpoint(s.geog::geometry)::geography, p.geog) as d1,
-                    st_azimuth(st_startpoint(s.geog::geometry)::geography, p.geog) as b1
-                from tmr2.segs as s,
-                  (select st_setsrid(
-                      st_point(CAST(:x as float),CAST(:y as float)),4283)::geography as geog) as p
-                where left(code,1) = any(string_to_array('123AKQ', NULL))
-                order by s.geog <-> p.geog limit 1) as foo
+                    ST_DISTANCE(ST_STARTPOINT(s.geog::geometry)::geography,
+                                ST_ENDPOINT(s.geog::geometry)::geography) as d0,
+                    ST_AZIMUTH(ST_STARTPOINT(s.geog::geometry)::geography,
+                               ST_ENDPOINT(s.geog::geometry)::geography) as b0,
+                    ST_DISTANCE(ST_STARTPOINT(s.geog::geometry)::geography, p.geog) as d1,
+                    ST_AZIMUTH(ST_STARTPOINT(s.geog::geometry)::geography, p.geog) as b1
+                FROM 
+                    tmr3.segs as s 
+                    CROSS JOIN
+                    (SELECT ST_SETSRID(
+                        ST_POINT(CAST(:x as float),CAST(:y as float)),4283)::geography as geog) as p
+                WHERE left(code,1) = any(string_to_array('123AKQ', NULL))
+                ORDER by s.geog <-> p.geog limit 1) as foo
 
 }]
 
@@ -44,34 +46,6 @@ proc roadloc {x y} {
     lassign [$query allrows] result
     dict with result {}
     return [list $ch $os $section $code $description]
-}
-
-# lcd
-
-proc lcdread {} {
-    global lcd wid hgt 
-    if {[gets $lcd line] < 0} {return}
-    set cmd [lindex $line 0]
-    if {$cmd eq "connect"} {
-        set wid [lindex $line 7]
-        set hgt [lindex $line 9]
-    }
-    if {$cmd eq "success"} { return }
-    if {$cmd eq "listen"} {
-        gpspoll
-        return
-    }
-    if {$cmd eq "ignore"} { 
-        gpsstop
-        return 
-    }
-    puts $line
-}
-
-proc lcdputs {str} {
-    global lcd
-    puts $lcd $str
-    flush $lcd
 }
 
 proc tmrinit {} {
@@ -110,14 +84,45 @@ proc tmrupdate {tpv} {
     }
 }
 
+# lcd
+
+proc lcdread {} {
+    global lcd wid hgt listen
+    if {[gets $lcd line] < 0} {return}
+    set cmd [lindex $line 0]
+    if {$cmd eq "connect"} {
+        set wid [lindex $line 7]
+        set hgt [lindex $line 9]
+    }
+    if {$cmd eq "success"} { return }
+    if {$cmd eq "listen"} {
+        set listen [lindex $line 1]
+        gpspoll
+        return
+    }
+    if {$cmd eq "ignore"} { 
+        set listen {}
+        gpsstop
+        return 
+    }
+    puts $line
+}
+
+proc lcdputs {str} {
+    global lcd
+    puts $lcd $str
+    flush $lcd
+}
+
 proc lcdinit {} {
-    global lcd 
+    global lcd listen
     set lcd [socket localhost 13666]
     chan configure $lcd -blocking no
     chan event $lcd readable [list lcdread]
     lcdputs "hello"
     vwait wid
     lcdputs "client_set name {lcdgps}"
+    set listen {}
     tmrinit
 }
 
