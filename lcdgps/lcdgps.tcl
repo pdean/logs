@@ -100,10 +100,10 @@ proc lcdread {} {
         gpspoll
         return
     }
-    if {$cmd eq "ignore"} { 
+    if {$cmd eq "ignore"} {
         set listen {}
         gpsstop
-        return 
+        return
     }
     puts $line
 }
