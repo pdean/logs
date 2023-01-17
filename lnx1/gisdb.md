@@ -40,8 +40,8 @@ change listen_addresses to
     listen_addresses = '0.0.0.0'
 
 or
-    psql
-    ALTER SYSTEM SET listen_addresses TO '0.0.0.0';
+    psql  
+    ALTER SYSTEM SET listen_addresses TO '0.0.0.0';  
     
     
     # systemctl restart postgresql
