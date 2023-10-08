@@ -18,6 +18,7 @@ export PATH=$PATH:~/bin
 export EDITOR=vim
 
 # see https://signalvnoise.com/posts/3264-automating-with-convention-introducing-sub
+# https://github.com/qrush/sub
 export PATH="${PATH}:/home/peter/my/bin"
 source "/home/peter/my/libexec/../completions/my.bash"
 _my_wrapper() {
