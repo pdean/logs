@@ -42,3 +42,4 @@ alias lst='ls -lrt | tail -5' # Show this dir's 5 most recently modified files
 # https://oreil.ly/1SUg7
 
 export CDPATH='.:~/:..:../..:~/.dirlinks'
+alias cd='cd -P'
