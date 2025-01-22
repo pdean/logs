@@ -2,13 +2,16 @@
 
 ## qgis
 
-
+<https://trac.osgeo.org/osgeo4w>
 
 ## strawberry perl
 
+<https://strawberryperl.com/>
 
+### CPAN installs
+
+- Inline::C
 
 ### geo-proj-cct
 
-#### pre install from git to local drive
-
+<https://github.com/pdean/geo-proj-cct/releases/tag/v1.0>
