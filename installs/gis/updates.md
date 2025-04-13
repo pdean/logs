@@ -14,4 +14,4 @@
 
 ### geo-proj-cct
 
-<https://github.com/pdean/geo-proj-cct/releases/tag/v1.0>
+<https://github.com/pdean/geo-proj-cct/releases/tag/v1.1>
